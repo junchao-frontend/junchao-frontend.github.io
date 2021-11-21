@@ -1,0 +1,446 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/fav.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <meta name="description" content="智慧校园游客模式是基于高德做的虚拟校园  高德API官网 https:&#x2F;&#x2F;lbs.amap.com&#x2F;api&#x2F;javascript-api&#x2F;summary&#x2F; API UI组件示例 https:&#x2F;&#x2F;lbs.amap.com&#x2F;demo&#x2F;amap-ui&#x2F;demos&#x2F;amapui-amaploader&#x2F;amapui-amaploader1&#x2F;  调用信息窗体API 1234567891011121314151">
+<meta property="og:type" content="article">
+<meta property="og:title" content="智慧校园项目">
+<meta property="og:url" content="http://example.com/2021/11/21/%E6%99%BA%E6%85%A7%E6%A0%A1%E5%9B%AD%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:site_name" content="Such is life">
+<meta property="og:description" content="智慧校园游客模式是基于高德做的虚拟校园  高德API官网 https:&#x2F;&#x2F;lbs.amap.com&#x2F;api&#x2F;javascript-api&#x2F;summary&#x2F; API UI组件示例 https:&#x2F;&#x2F;lbs.amap.com&#x2F;demo&#x2F;amap-ui&#x2F;demos&#x2F;amapui-amaploader&#x2F;amapui-amaploader1&#x2F;  调用信息窗体API 1234567891011121314151">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-11-21T02:07:04.736Z">
+<meta property="article:modified_time" content="2021-11-21T02:14:11.854Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="项目">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>智慧校园项目 - Such is life</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小潮</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                目录
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201503%2F02%2F20150302151953_Karsy.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1639876068&t=6437fab347f00b7ed0e94337aadf0a96') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="智慧校园项目">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-11-21 10:07" pubdate>
+        November 21, 2021 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">智慧校园项目</h1>
+            
+            <div class="markdown-body">
+              <p>智慧校园游客模式是基于高德做的虚拟校园</p>
+<hr>
+<p>高德API官网</p>
+<p><a target="_blank" rel="noopener" href="https://lbs.amap.com/api/javascript-api/summary/">https://lbs.amap.com/api/javascript-api/summary/</a></p>
+<p>API UI组件示例</p>
+<p><a target="_blank" rel="noopener" href="https://lbs.amap.com/demo/amap-ui/demos/amapui-amaploader/amapui-amaploader1/">https://lbs.amap.com/demo/amap-ui/demos/amapui-amaploader/amapui-amaploader1/</a></p>
+<hr>
+<p>调用信息窗体API</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">AMapUI.loadUI([<span class="hljs-string">&#x27;overlay/SimpleInfoWindow&#x27;</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(SimpleInfoWindow)</span> </span>&#123;<br>    <span class="hljs-keyword">var</span> marker = <span class="hljs-keyword">new</span> AMap.Marker(&#123;<br>        map: map,<br>        zIndex: <span class="hljs-number">9999999</span>,<br>        position: map.getCenter()<br>    &#125;);<br><br>    <span class="hljs-keyword">var</span> infoWindow = <span class="hljs-keyword">new</span> SimpleInfoWindow(&#123;<br>        <span class="hljs-comment">//模板, underscore</span><br>        infoTitle: <span class="hljs-string">&#x27;&lt;strong&gt;&lt;%- title %&gt;&lt;/strong&gt;&#x27;</span>,<br>        infoBody: <span class="hljs-string">&#x27;&lt;p class=&quot;my-desc&quot;&gt;&#x27;</span> +<br>            <span class="hljs-comment">//&lt;%= 原值插入 ..</span><br>            <span class="hljs-string">&#x27;&lt;%= img %&gt;&#x27;</span> +<br>            <span class="hljs-comment">//&lt;%- html编码后插入</span><br>            <span class="hljs-string">&#x27;&lt;%- body %&gt;&#x27;</span> +<br>            <span class="hljs-string">&#x27;&lt;/p&gt;&#x27;</span>,<br>        <span class="hljs-comment">//模板数据</span><br>        infoTplData: &#123;<br>            title: <span class="hljs-string">&#x27;&quot;标题-标题&quot;&#x27;</span>,<br>            img: <span class="hljs-string">&#x27;&lt;img src=&quot;//webapi.amap.com/theme/v1.3/autonavi.png&quot; /&gt;&#x27;</span>,<br>            body: <span class="hljs-string">&#x27;&lt;---------内容---------&gt;&#x27;</span><br>        &#125;,<br><br>        <span class="hljs-comment">//基点指向marker的头部位置</span><br>        offset: <span class="hljs-keyword">new</span> AMap.Pixel(<span class="hljs-number">0</span>, <span class="hljs-number">-31</span>)<br>    &#125;);<br><br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">openInfoWin</span><span class="hljs-params">()</span> </span>&#123;<br>        infoWindow.open(map, marker.getPosition());<br>    &#125;<br><br>    <span class="hljs-comment">//marker 点击时打开</span><br>    marker.on(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>&#123;<br>        openInfoWin();<br>    &#125;);<br><br>    openInfoWin();<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h6 id="如果在vue方法中调用此api-不能用function-SimpleInfoWindow"><a href="#如果在vue方法中调用此api-不能用function-SimpleInfoWindow" class="headerlink" title="如果在vue方法中调用此api 不能用function(SimpleInfoWindow){}"></a>如果在vue方法中调用此api 不能用function(SimpleInfoWindow){}</h6><p>这样是里面访问不到data属性的 这里面this是undefined</p>
+<h6 id="应该有改成箭头函数"><a href="#应该有改成箭头函数" class="headerlink" title="应该有改成箭头函数"></a>应该有改成箭头函数</h6><p>(SimpleInfoWindow) =&gt;{}</p>
+<hr>
+<h6 id="信息窗体模板字符串绑定事件问题"><a href="#信息窗体模板字符串绑定事件问题" class="headerlink" title="信息窗体模板字符串绑定事件问题"></a>信息窗体模板字符串绑定事件问题</h6><p>信息窗体里面需要用模板字符串</p>
+<p>例如</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs xquery">var infoWindow = new SimpleInfoWindow(&#123;<br>            infoTitle: <span class="hljs-type">item</span><span class="hljs-built_in">.name</span>,<br>            infoBody: `<br>            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;info-warp&quot;</span>&gt;</span></span><br><span class="xml">            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">align</span>= <span class="hljs-string">&#x27;left&#x27;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&#x27;infoImage&#x27;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;$</span></span></span><span class="xquery">&#123;<span class="hljs-type">item</span>.img&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span></span><br><span class="xml">            </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;infoText&quot;</span>&gt;</span>$</span><span class="xquery">&#123;<span class="hljs-type">item</span>.introduce&#125;</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><span class="xml"></span><br><span class="xml">            </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;infoBottom&quot;</span>&gt;</span></span><br><span class="xml">            </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;small-box&quot;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;openNav()&quot;</span>&gt;</span></span><br><span class="xml">            </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;iconfont gaode-jiantou_youshang&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span></span><span class="xml"></span><br><span class="xml">            </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;smallbox-text&quot;</span>&gt;</span>从这<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><span class="xml"></span><br><span class="xml">            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><span class="xml"></span><br><span class="xml">            </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;small-box&quot;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;openNav2()&quot;</span>&gt;</span></span><br><span class="xml">            </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;iconfont gaode-jiantou_youxia&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span></span><span class="xml"></span><br><span class="xml">            </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;smallbox-text&quot;</span>&gt;</span>到这<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><span class="xml"></span><br><span class="xml">            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><span class="xml"></span><br><span class="xml">            </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;small-box&quot;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;openPSV()&quot;</span>&gt;</span></span><br><span class="xml">            </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;iconfont gaode-quanjing&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span></span><span class="xml"></span><br><span class="xml">            </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;smallbox-text&quot;</span>&gt;</span>全景<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><span class="xml"></span><br><span class="xml">            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><span class="xml"></span><br><span class="xml">            </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;small-box&quot;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;See()&quot;</span>&gt;</span></span><br><span class="xml">            </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;iconfont gaode-16&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span></span><span class="xml"></span><br><span class="xml">            </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;smallbox-text&quot;</span>&gt;</span>详情<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><span class="xml"></span><br><span class="xml">            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><span class="xml"></span><br><span class="xml">            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><span class="xml"></span><br><span class="xml">            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>            `,<br>            // 基点指向marker的头部位置<br>            offset: new AMap.Pixel(<span class="hljs-number">0</span>, -<span class="hljs-number">31</span>)<br>          &#125;)<br></code></pre></td></tr></table></figure>
+
+<h6 id="在模板字符串调用点击事件必须用onclick-”test-”"><a href="#在模板字符串调用点击事件必须用onclick-”test-”" class="headerlink" title="在模板字符串调用点击事件必须用onclick=”test()”"></a>在模板字符串调用点击事件必须用onclick=”test()”</h6><p>test后面必须跟()如果没有括号是不成立的</p>
+<p>模板字符串的点击事件必须是window下的函数</p>
+<p>所以函数定义应该定义到window下</p>
+<p>例如</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-regexp">//</span> 打开全景函数<br><span class="hljs-built_in">window</span>.openPSV = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>, <span class="hljs-string">&#x27;vvvv&#x27;</span>)<br>            <span class="hljs-built_in">this</span>.showPhoto = <span class="hljs-literal">true</span><br>            <span class="hljs-built_in">this</span>.$nextTick(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>              <span class="hljs-built_in">this</span>.initPhoto()<br>            &#125;)<br>            <span class="hljs-built_in">this</span>.otherPhoto = <span class="hljs-literal">true</span><br>            <span class="hljs-built_in">this</span>.move()<br>            <span class="hljs-regexp">//</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;photosphere&#x27;</span>))<br>          &#125;<br></code></pre></td></tr></table></figure>
+
+<p>想在模板字符串中调用vue的方法 必须把vue的方法复制给window</p>
+<p>例如</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">v-html</span>=<span class="hljs-string">&quot;contentStr&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript">        <span class="hljs-keyword">var</span> app = <span class="hljs-keyword">new</span> Vue(&#123;</span><br><span class="javascript">            <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#app&#x27;</span>,</span><br><span class="javascript">            <span class="hljs-function"><span class="hljs-title">data</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="javascript">                <span class="hljs-keyword">return</span>&#123;</span><br><span class="javascript">                    <span class="hljs-attr">contentStr</span>: <span class="hljs-string">`&lt;p onclick=&quot;opendev()&quot;&gt;我是模板字符串，点击我。&lt;/p&gt;`</span></span><br><span class="javascript">                &#125;</span><br><span class="javascript">            &#125;,</span><br><span class="javascript">            <span class="hljs-attr">methods</span>:&#123;</span><br><span class="javascript">                <span class="hljs-function"><span class="hljs-title">opendev</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="javascript">                  <span class="hljs-built_in">this</span>.contentStr = <span class="hljs-string">&#x27;点击之后&#x27;</span></span><br><span class="javascript">                &#125;</span><br><span class="javascript">            &#125;,</span><br><span class="javascript">            <span class="hljs-function"><span class="hljs-title">mounted</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="javascript">                <span class="hljs-comment">// console.log(this);</span></span><br><span class="javascript">                <span class="hljs-built_in">window</span>.opendev = <span class="hljs-built_in">this</span>.opendev <span class="hljs-comment">// 将方法复制给window</span></span><br><span class="javascript">            &#125;</span><br><span class="javascript">        &#125;)</span><br><span class="javascript">        <span class="hljs-built_in">console</span>.log(app, <span class="hljs-string">&#x27;app&#x27;</span>);</span><br><span class="javascript">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h6 id="而且必须是箭头函数-否则也访问不到vue实例"><a href="#而且必须是箭头函数-否则也访问不到vue实例" class="headerlink" title="而且必须是箭头函数 否则也访问不到vue实例"></a>而且必须是箭头函数 否则也访问不到vue实例</h6><hr>
+<p>访问外部链接 跳转一个新页面的方法</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">window</span>.See = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;<br>            <span class="hljs-built_in">window</span>.open(<span class="hljs-string">&#x27;http://xindian.hebeu.edu.cn/&#x27;</span>, <span class="hljs-string">&#x27;_blank&#x27;</span>)<br>            <span class="hljs-regexp">//</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;photosphere&#x27;</span>))<br>          &#125;<br>          marker.<span class="hljs-literal">on</span>(<span class="hljs-string">&#x27;click&#x27;</span>, markerClick)<br>        &#125;)<br></code></pre></td></tr></table></figure>
+<hr>
+<p>如果想在当前页面打开</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">window.location.href</span> = <span class="hljs-string">&#x27;http://42.193.99.32:8766&#x27;</span><br><br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98/">项目问题</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A1%B9%E7%9B%AE/">项目</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/11/21/css%E5%AD%A6%E4%B9%A0/">
+                        <span class="hidden-mobile">CSS基础知识</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

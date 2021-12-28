@@ -24,7 +24,7 @@
 <meta property="og:description" content="Module定义：由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。 为了解决以上问题，Vuex 允许我们将 store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter、甚至是嵌套子模块——从上至下进行同样方式的分割 项目案例自定义用户user模块  把属于用户相关的信息">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-11-30T07:47:56.877Z">
-<meta property="article:modified_time" content="2021-11-30T07:47:26.014Z">
+<meta property="article:modified_time" content="2021-11-30T08:16:25.942Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Vue Vuex">
 <meta name="twitter:card" content="summary_large_image">
@@ -190,7 +190,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      1.7k 字
     </span>
   
 
@@ -242,7 +242,7 @@
 
 <h6 id="如果在页面中调用module里面的数据"><a href="#如果在页面中调用module里面的数据" class="headerlink" title="如果在页面中调用module里面的数据"></a>如果在页面中调用module里面的数据</h6><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pf">this.<span class="hljs-variable">$store</span>.<span class="hljs-keyword">state</span>.<span class="hljs-keyword">user</span>Module.name.....<br></code></pre></td></tr></table></figure>
 
-<h6 id="在页面调用module里面的getters和mutations-等等-都要加入前缀userModule"><a href="#在页面调用module里面的getters和mutations-等等-都要加入前缀userModule" class="headerlink" title="在页面调用module里面的getters和mutations 等等 都要加入前缀userModule/"></a>在页面调用module里面的getters和mutations 等等 都要加入前缀userModule/</h6><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs stylus">this.<span class="hljs-variable">$store</span><span class="hljs-selector-class">.commit</span>(<span class="hljs-string">&#x27;userModule/SET_COOKIE&#x27;</span>, res<span class="hljs-selector-class">.data</span>.cookie)<br><br>  computed: &#123;<br>    ..<span class="hljs-selector-class">.mapGetters</span>(&#123;<br>      userName: <span class="hljs-string">&#x27;userModule/GET_NAME&#x27;</span>,<br>      userAvatar: <span class="hljs-string">&#x27;userModule/GET_AVATAR&#x27;</span><br>    &#125;)<br>  &#125;,<br></code></pre></td></tr></table></figure>
+<h6 id="在页面调用module里面的state-getters和mutations-等等-都要加入前缀userModule"><a href="#在页面调用module里面的state-getters和mutations-等等-都要加入前缀userModule" class="headerlink" title="在页面调用module里面的state    getters和mutations 等等 都要加入前缀userModule/"></a>在页面调用module里面的state    getters和mutations 等等 都要加入前缀userModule/</h6><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs pf">this.<span class="hljs-variable">$store</span>.commit(&#x27;<span class="hljs-keyword">user</span>Module/SET_COOKIE&#x27;, res.data.cookie)<br><br>  computed: &#123;<br>    ...mapGetters(&#123;<br>      <span class="hljs-keyword">user</span>Name: &#x27;<span class="hljs-keyword">user</span>Module/GET_NAME&#x27;,<br>      <span class="hljs-keyword">user</span>Avatar: &#x27;<span class="hljs-keyword">user</span>Module/GET_AVATAR&#x27;<br>    &#125;)<br>  &#125;,<br>  <br>  <br>  ...mapState(<br>      &#123;<br>        LOADING: <span class="hljs-keyword">state</span> =&gt; <span class="hljs-keyword">state</span>.statusModule.LOADING,<br>        musicBoxShow: <span class="hljs-keyword">state</span> =&gt; <span class="hljs-keyword">state</span>.statusModule.musicBoxShow,<br>        musicshow: <span class="hljs-keyword">state</span> =&gt; <span class="hljs-keyword">state</span>.statusModule.musicshow<br>      &#125;<br>    )<br></code></pre></td></tr></table></figure>
 
 
 
@@ -279,6 +279,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/12/20/vue-source/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Vue源码学习</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

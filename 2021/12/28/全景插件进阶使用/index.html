@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/fav.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <meta name="description" content="引入官方插件例如点标记插件首先引入该插件,之后在实例化Viewer的时候  在plugins里面添加该插件 之后通过变量get到对应插件1234import &amp;#123; MarkersPlugin &amp;#125; from &amp;#x27;photo-sphere-viewer&#x2F;dist&#x2F;plugins&#x2F;markers.js&amp;#x27; &#x2F;&#x2F; 引入插件import &amp;#x27;photo-sphere">
+<meta property="og:type" content="article">
+<meta property="og:title" content="全景插件进阶使用">
+<meta property="og:url" content="http://example.com/2021/12/28/%E5%85%A8%E6%99%AF%E6%8F%92%E4%BB%B6%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Such is life">
+<meta property="og:description" content="引入官方插件例如点标记插件首先引入该插件,之后在实例化Viewer的时候  在plugins里面添加该插件 之后通过变量get到对应插件1234import &amp;#123; MarkersPlugin &amp;#125; from &amp;#x27;photo-sphere-viewer&#x2F;dist&#x2F;plugins&#x2F;markers.js&amp;#x27; &#x2F;&#x2F; 引入插件import &amp;#x27;photo-sphere">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-28T12:20:13.372Z">
+<meta property="article:modified_time" content="2021-12-28T12:20:17.314Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="UI">
+<meta name="twitter:card" content="summary_large_image">
+  
+  <title>全景插件进阶使用 - Such is life</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小潮</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                目录
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201503%2F02%2F20150302151953_Karsy.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1639876068&t=6437fab347f00b7ed0e94337aadf0a96') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="全景插件进阶使用">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-28 20:20" pubdate>
+        December 28, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">全景插件进阶使用</h1>
+            
+            <div class="markdown-body">
+              <h3 id="引入官方插件"><a href="#引入官方插件" class="headerlink" title="引入官方插件"></a>引入官方插件</h3><h4 id="例如点标记插件"><a href="#例如点标记插件" class="headerlink" title="例如点标记插件"></a>例如点标记插件</h4><h5 id="首先引入该插件-之后在实例化Viewer的时候-在plugins里面添加该插件-之后通过变量get到对应插件"><a href="#首先引入该插件-之后在实例化Viewer的时候-在plugins里面添加该插件-之后通过变量get到对应插件" class="headerlink" title="首先引入该插件,之后在实例化Viewer的时候  在plugins里面添加该插件 之后通过变量get到对应插件"></a>首先引入该插件,之后在实例化Viewer的时候  在plugins里面添加该插件 之后通过变量get到对应插件</h5><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs clean"><span class="hljs-keyword">import</span> &#123; MarkersPlugin &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;photo-sphere-viewer/dist/plugins/markers.js&#x27;</span> <span class="hljs-comment">// 引入插件</span><br><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;photo-sphere-viewer/dist/plugins/markers.css&#x27;</span><span class="hljs-comment">// 点标记样式</span><br><span class="hljs-keyword">import</span> &#123; Viewer &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;photo-sphere-viewer&quot;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;photo-sphere-viewer/dist/photo-sphere-viewer.css&quot;</span>;<br></code></pre></td></tr></table></figure>
+
+<h5 id="之后js代码"><a href="#之后js代码" class="headerlink" title="之后js代码"></a>之后js代码</h5><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs dts">export <span class="hljs-class">default </span>&#123;<br><span class="hljs-symbol">  components:</span> &#123;&#125;,<br>  data() &#123;<br>    <span class="hljs-class">return </span>&#123;<br><span class="hljs-symbol">      panoramadata:</span> null,<br><span class="hljs-symbol">      img:</span> require(<span class="hljs-string">&quot;./shimo.jpg&quot;</span>),<br>    &#125;;<br>  &#125;,<br><span class="hljs-symbol">  computed:</span> &#123;&#125;,<br>  created() &#123;&#125;,<br>  mounted() &#123;<br>    this.init();<br>  &#125;,<br><span class="hljs-symbol">  methods:</span> &#123;<br>    init() &#123;<br>      const PSV = new Viewer(&#123;<br><span class="hljs-symbol">        container:</span> document.getElementById(<span class="hljs-string">&quot;photosphere&quot;</span>),<br><span class="hljs-symbol">        panorama:</span> this.img,<br><span class="hljs-symbol">        size:</span> &#123;<br><span class="hljs-symbol">          width:</span> <span class="hljs-string">&quot;100%&quot;</span>,<br><span class="hljs-symbol">          height:</span> <span class="hljs-string">&quot;100%&quot;</span>,<br>        &#125;,<br><span class="hljs-symbol">        plugins:</span> [<br>          MarkersPlugin <span class="hljs-comment">// 引入</span><br>        ]<br>      &#125;);<br>      const markersPlugin = PSV.getPlugin(MarkersPlugin); <span class="hljs-comment">// 拿到该插件 </span><br>      <span class="hljs-comment">// PSV.on(&quot;click&quot;, (e) =&gt; &#123;</span><br>      <span class="hljs-comment">//   console.log(e);</span><br>      <span class="hljs-comment">// &#125;);</span><br>      <br>      <span class="hljs-comment">// 调用该插件的API</span><br>      markersPlugin.addMarker(&#123;<br><span class="hljs-symbol">            id:</span> <span class="hljs-string">&quot;image&quot;</span>,<br><span class="hljs-symbol">            longitude:</span> <span class="hljs-number">0.4711687217635454</span>,<br><span class="hljs-symbol">            latitude:</span> <span class="hljs-number">-0.07877033779874698</span>,<br><span class="hljs-symbol">            image:</span> <span class="hljs-string">&quot;http://42.193.99.32:9800/school/web_Red_icon.png&quot;</span>,<br><span class="hljs-symbol">            width:</span> <span class="hljs-number">32</span>,<br><span class="hljs-symbol">            height:</span> <span class="hljs-number">32</span>,<br>            <span class="hljs-comment">// anchor: &#x27;bottom center&#x27;,</span><br>            <span class="hljs-comment">// tooltip: &#x27;A image marker. &lt;b&gt;Click me!&lt;/b&gt;&#x27;</span><br>            <span class="hljs-comment">// content: document.getElementById(&#x27;lorem-content&#x27;).innerHTML</span><br>      &#125;)<br>      <span class="hljs-comment">//  console.log(this.panoramadata.getPosition());</span><br>    &#125;,<br>  &#125;,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/UI/">UI</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/UI/">UI</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/28/%E6%89%8B%E5%86%99/">
+                        <span class="hidden-mobile">JS手写</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

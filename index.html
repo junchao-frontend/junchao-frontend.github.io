@@ -184,6 +184,181 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2022/03/14/vue2%E5%93%8D%E5%BA%94%E5%BC%8F/" target="_self">
+          vue2响应式原理
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/03/14/vue2%E5%93%8D%E5%BA%94%E5%BC%8F/" target="_self">
+          
+          
+            
+          
+          Vue在生命周期beforeCreate和created期间会初始化data
+会执行Observe函数
+observe(data)执行observe函数会定义一个ob，之后实例化Observer这个类
+在Observer类里面会调用def函数给每一个value绑定一个__ob__ ， 这个__ob__指向Observe实例
+紧接着会判断传进来的value是对象还是数组，如果是对象则walk函数，如
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-03-14 11:27" pubdate>
+              2022-03-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Vue2%E6%BA%90%E7%A0%81/">Vue2源码</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%BA%90%E7%A0%81/">源码</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/03/14/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/" target="_self">
+          Vue生命周期详解
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/03/14/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/" target="_self">
+          
+          
+            
+          
+          
+1.beforeCreate和created之间在这个生命周期之间，进行初始化事件，进行数据的观测，可以看到在created的时候数据已经和data属性进行绑定（放在data中的属性当值发生改变的同时，视图也会改变）。
+注意：此时还是没有el选项
+2.created钩子函数和beforeMount间的生命周期首先，会判断对象是否有el选项：如果有的话就继续向下编译，如果没有el选项，则停止编译，
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-03-14 11:27" pubdate>
+              2022-03-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Vue/">Vue</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Vue/">Vue</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/03/14/Vue%E6%BA%90%E7%A0%81/" target="_self">
+          vue源码
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/03/14/Vue%E6%BA%90%E7%A0%81/" target="_self">
+          
+          
+            
+          
+          数据驱动
+前提: 
+
+你一定得用过 vue
+如果没有使用过的 可以去 官网 去看一看 使用教程
+
+Vue 与模板使用步骤:
+
+编写 页面 模板 
+直接在 HTML 标签中写 标签
+使用 template
+使用 单文件 (  )
+
+
+创建 Vue 的实例
+在 Vue 的构造函数中提供: data, methods, computed, watcher, props, …
+
+
+将 Vue 挂载到 页面
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-03-14 11:23" pubdate>
+              2022-03-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Vue2%E6%BA%90%E7%A0%81/">Vue2源码</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%BA%90%E7%A0%81/">源码</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2022/01/05/vue%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/" target="_self">
           Vue动态路由
         </a>
@@ -554,179 +729,11 @@ Vue 与模板使用步骤:
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/25/Mock%E4%BD%BF%E7%94%A8/" target="_self">
-          Mock使用
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/11/25/Mock%E4%BD%BF%E7%94%A8/" target="_self">
-          
-          
-            
-          
-          github地址: https://github.com/nuysoft/Mock/wiki安装1cnpm install mockjs
-
-页面使用mock直接
-1import Mock from &#x27;mockjs&#x27;
-
-语法规范数据模板中的每个属性由 3 部分构成：属性名、生成规则、属性值：
-1234// 属性名   name// 生成规则 rule// 属性值   value&
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-25 12:06" pubdate>
-              2021-11-25
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Mock/">Mock</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/mock/">mock</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/23/Webpack%E8%BF%9B%E9%98%B6/" target="_self">
-          Webpack进阶
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/11/23/Webpack%E8%BF%9B%E9%98%B6/" target="_self">
-          
-          
-            
-          
-          拆分开发环境和生产环境配置
-
-开发环境:开发环境主要实现的是热更新,不要压缩代码，完整的sourceMap
-生产环境:生产环境主要实现的是压缩代码、提取css文件、合理的sourceMap、分割代码
-
-公共路径publicPath 配置选项在各种场景中都非常有用。你可以通过它来指定应用程序中所有资源的基础路径。
-在output下 新加配置项
-12345678output: &#123;      
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-23 10:00" pubdate>
-              2021-11-23
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Webpack/">Webpack</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Webpack/">Webpack</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/21/Webpack%E5%85%A5%E9%97%A8/" target="_self">
-          Webpack入门
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/11/21/Webpack%E5%85%A5%E9%97%A8/" target="_self">
-          
-          
-            
-          
-          Webpack入门webpack是一个静态模块打包器(module bundler)
-前端所有资源文件(js/json/css/img/less…)都会作为模块处理，它将根据模块的依赖关系进行静态分析,打包生成对应的静态资源（bundle）
-五大核心概念
-Entry    webpack打包入口文件
-Output  指示webpack打包后的资源bundles 输出到哪里去
-Loader  loa
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-21 17:00" pubdate>
-              2021-11-21
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Webpack/">Webpack</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Webpack/">Webpack</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 

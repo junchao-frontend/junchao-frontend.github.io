@@ -24,7 +24,7 @@
 <meta property="og:description" content="字符串方法(String)split()split() 方法用于把一个字符串分割成字符串数组 123var data &#x3D; &amp;#x27;&#x2F;user&#x2F;showdata?pageIndex&#x3D;1&amp;pageSize&#x3D;5&amp;#x27;        var s &#x3D; data.split(&amp;#x27;?&amp;#x27;)        console.log(s); &#x2F;&#x2F; [&amp;#x27;&#x2F;user&#x2F;showd">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-11-25T11:38:02.749Z">
-<meta property="article:modified_time" content="2021-11-25T11:38:47.635Z">
+<meta property="article:modified_time" content="2022-05-10T02:27:29.498Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="js api">
 <meta name="twitter:card" content="summary_large_image">
@@ -190,7 +190,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.7k 字
+      3.9k 字
     </span>
   
 
@@ -234,7 +234,11 @@
               <h3 id="字符串方法-String"><a href="#字符串方法-String" class="headerlink" title="字符串方法(String)"></a>字符串方法(String)</h3><h5 id="split"><a href="#split" class="headerlink" title="split()"></a>split()</h5><p>split() 方法用于把一个字符串分割成字符串数组</p>
 <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs lasso"><span class="hljs-built_in">var</span> <span class="hljs-built_in">data</span> = <span class="hljs-string">&#x27;/user/showdata?pageIndex=1&amp;pageSize=5&#x27;</span><br>        <span class="hljs-built_in">var</span> s = <span class="hljs-built_in">data</span>.split(<span class="hljs-string">&#x27;?&#x27;</span>)<br>        console.<span class="hljs-keyword">log</span>(s); <span class="hljs-comment">// [&#x27;/user/showdata&#x27;, &#x27;pageIndex=1&amp;pageSize=5&#x27;]</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="数组方法-Array"><a href="#数组方法-Array" class="headerlink" title="数组方法(Array)"></a>数组方法(Array)</h3><h4 id="返回新数组-不改变原数组"><a href="#返回新数组-不改变原数组" class="headerlink" title="返回新数组,不改变原数组"></a>返回新数组,不改变原数组</h4><h5 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h5><p>把数组中所有元素放入一个字符串中，返回字符串。</p>
+<h3 id="数组方法-Array"><a href="#数组方法-Array" class="headerlink" title="数组方法(Array)"></a>数组方法(Array)</h3><h5 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h5><p>返回数组中满足条件的第一个元素的值，如果没有，返回 undefined</p>
+<h5 id="findeIndex"><a href="#findeIndex" class="headerlink" title="findeIndex()"></a>findeIndex()</h5><p>返回数组中满足条件的第一个元素的下标，如果没有找到，返回-1</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">var</span> arr=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>];<br><span class="hljs-keyword">var</span> result = arr.findIndex(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span>&#123;<br>    <span class="hljs-keyword">return</span> item &gt; <span class="hljs-number">3</span><br>&#125;);<br>console.log(result);<br></code></pre></td></tr></table></figure>
+
+<h4 id="返回新数组-不改变原数组"><a href="#返回新数组-不改变原数组" class="headerlink" title="返回新数组,不改变原数组"></a>返回新数组,不改变原数组</h4><h5 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h5><p>把数组中所有元素放入一个字符串中，返回字符串。</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk">const arr = [<span class="hljs-string">&#x27;pr&#x27;</span>, <span class="hljs-string">&#x27;is&#x27;</span>, <span class="hljs-number">18</span>];<br><br>console.log(arr.join(<span class="hljs-string">&#x27; &#x27;</span>)); <span class="hljs-regexp">//</span> pr is <span class="hljs-number">18</span><br>console.log(arr); <span class="hljs-regexp">//</span> [ <span class="hljs-string">&#x27;pr&#x27;</span>, <span class="hljs-string">&#x27;is&#x27;</span>, <span class="hljs-number">18</span> ]<br></code></pre></td></tr></table></figure>
 
 <h5 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h5><p>连接多个（含两个）数组，两边的原始数组都不会变化，返回被连接数组的一个副本，可继续 <code>concat</code></p>
@@ -250,7 +254,7 @@
 <ul>
 <li>如果数组中检测到有一个元素不满足，则整个表达式返回 <code>false</code>，且剩余的元素不会再进行检测；</li>
 <li>如果所有元素都满足条件，则返回 <code>true</code>；</li>
-<li> every() 不会对空数组进行检测</li>
+<li>every() 不会对空数组进行检测</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];<br><br><span class="hljs-built_in">console</span>.log(arr.every(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i &gt; <span class="hljs-number">2</span>)); <span class="hljs-comment">// false</span><br><span class="hljs-built_in">console</span>.log(arr.every(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i &gt; <span class="hljs-number">0</span>)); <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
 
@@ -266,7 +270,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];<br><br><span class="hljs-built_in">console</span>.log(arr.filter(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> i &gt; <span class="hljs-number">2</span>)); <span class="hljs-comment">// [3, 4]</span><br></code></pre></td></tr></table></figure>
 
 <h5 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h5><p>用于调用数组的每个元素，并将元素传递给回调函数，返回 <code>undefiend</code>。</p>
-<p>forEach没有返回值</p>
+<p>forEach 没有返回值</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">const</span> arr = [1, 2, 3, 4];<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">copy</span> = [];<br><br>console.<span class="hljs-built_in">log</span>(arr.<span class="hljs-keyword">forEach</span>(i =&gt; &#123;<br>    <span class="hljs-keyword">copy</span>.push(i * 2);<br>&#125;));<br>console.<span class="hljs-built_in">log</span>(<span class="hljs-keyword">copy</span>); <span class="hljs-comment">// [ 2, 4, 6, 8 ]</span><br></code></pre></td></tr></table></figure>
 
 <h5 id="reduce"><a href="#reduce" class="headerlink" title="reduce()"></a>reduce()</h5><p>接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值。若是空数组是不会执行回调函数的;</p>
@@ -288,7 +292,7 @@
 <h5 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h5><p>颠倒数组中元素的位置，返回该数组的引用。</p>
 <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs processing"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];<br><span class="hljs-keyword">const</span> hello = <span class="hljs-string">&#x27;hello&#x27;</span>;<br><span class="hljs-keyword">const</span> helloArray = hello.<span class="hljs-built_in">split</span>(<span class="hljs-string">&#x27;&#x27;</span>);<br>console.<span class="hljs-built_in">log</span>(helloArray.<span class="hljs-built_in">reverse</span>().<span class="hljs-built_in">join</span>(<span class="hljs-string">&#x27;&#x27;</span>)); <span class="hljs-comment">// olleh</span><br>console.<span class="hljs-built_in">log</span>(arr.<span class="hljs-built_in">reverse</span>()); <span class="hljs-comment">// [ 4, 3, 2, 1 ]</span><br>console.<span class="hljs-built_in">log</span>(arr); <span class="hljs-comment">// [ 4, 3, 2, 1 ]</span><br>console.<span class="hljs-built_in">log</span>(helloArray); <span class="hljs-comment">// [ &#x27;o&#x27;, &#x27;l&#x27;, &#x27;l&#x27;, &#x27;e&#x27;, &#x27;h&#x27; ]</span><br></code></pre></td></tr></table></figure>
 
-<h5 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h5><p>sort()  方法用于对数组的元素进行排序，并返回数组。默认排序顺序是根据字符串UniCode码。</p>
+<h5 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h5><p>sort() 方法用于对数组的元素进行排序，并返回数组。默认排序顺序是根据字符串 UniCode 码。</p>
 <h5 id="splice"><a href="#splice" class="headerlink" title="splice()"></a>splice()</h5><p>splice() 方法向/从数组添加/删除项目，并返回删除的项目</p>
 <p>语法</p>
 <figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs delphi"><span class="hljs-keyword">array</span>.splice(<span class="hljs-keyword">index</span>, howmany, item1, ....., itemX)<br></code></pre></td></tr></table></figure>
@@ -297,9 +301,6 @@
 <p>howmany:可选。要删除的项目数。如果设置为 0，则不会删除任何项目。</p>
 <p>item.. :可选,要添加到数组中的新项目</p>
 <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs processing"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];<br><br>console.<span class="hljs-built_in">log</span>(arr.<span class="hljs-built_in">splice</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">12</span>)); <span class="hljs-comment">// [ 2, 3 ]</span><br>console.<span class="hljs-built_in">log</span>(<span class="hljs-string">&#x27;=&gt;&#x27;</span>);<br>console.<span class="hljs-built_in">log</span>(arr); <span class="hljs-comment">// [ 1, 10, 12, 4 ]</span><br></code></pre></td></tr></table></figure>
-
-
-
 
             </div>
             <hr>

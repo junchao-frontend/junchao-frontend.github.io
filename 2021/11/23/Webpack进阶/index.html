@@ -13,10 +13,10 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <meta name="description" content="拆分开发环境和生产环境配置  开发环境:开发环境主要实现的是热更新,不要压缩代码，完整的 sourceMap 生产环境:生产环境主要实现的是压缩代码、提取 css 文件、合理的 sourceMap、分割代码  公共路径publicPath 配置选项在各种场景中都非常有用。你可以通过它来指定应用程序中所有资源的基础路径。 在 output 下 新加配置项 12345678output: &amp;#123;">
+  
+    <meta name="description" content="拆分开发环境和生产环境配置  开发环境:开发环境主要实现的是热更新,不要压缩代码，完整的 sourceMap 生产环境:生产环境主要实现的是压缩代码、提取 css 文件、合理的 sourceMap、分割代码  公共路径publicPath 配置选项在各种场景中都非常有用。你可以通过它来指定应用程序中所有资源的基础路径。 在 output 下 新加配置项 12345678output: &amp;#123;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Webpack进阶">
 <meta property="og:url" content="http://example.com/2021/11/23/Webpack%E8%BF%9B%E9%98%B6/index.html">
@@ -31,30 +31,26 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://49.232.18.137:9000/chao/source-map.png">
   
+  
+  
   <title>Webpack进阶 - Such is life</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
+
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
-    
-  
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
 
-  
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
-  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
@@ -63,21 +59,42 @@
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
       <strong>宿雾</strong>
@@ -100,7 +117,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                <span>首页</span>
               </a>
             </li>
           
@@ -112,7 +129,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                目录
+                <span>目录</span>
               </a>
             </li>
           
@@ -124,7 +141,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                分类
+                <span>分类</span>
               </a>
             </li>
           
@@ -136,7 +153,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                <span>标签</span>
               </a>
             </li>
           
@@ -148,7 +165,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                关于
+                <span>关于</span>
               </a>
             </li>
           
@@ -156,8 +173,9 @@
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -165,57 +183,71 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201503%2F02%2F20150302151953_Karsy.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1639876068&t=6437fab347f00b7ed0e94337aadf0a96') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Webpack进阶">
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-11-23 10:00" pubdate>
-        November 23, 2021 am
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      7.5k 字
-    </span>
   
 
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      24 分钟
-    </span>
-  
-
-  
-  
-</div>
-
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201503%2F02%2F20150302151953_Karsy.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1639876068&t=6437fab347f00b7ed0e94337aadf0a96') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Webpack进阶"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-11-23 10:00" pubdate>
+          November 23, 2021 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          7.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          24 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
@@ -224,16 +256,22 @@
 
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
     <div class="col-lg-8 nopadding-x-md">
       <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
+        <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">Webpack进阶</h1>
             
-            <div class="markdown-body">
-              <h4 id="拆分开发环境和生产环境配置"><a href="#拆分开发环境和生产环境配置" class="headerlink" title="拆分开发环境和生产环境配置"></a>拆分开发环境和生产环境配置</h4><!--区别-->
+            
+              <div class="markdown-body">
+                
+                <h4 id="拆分开发环境和生产环境配置"><a href="#拆分开发环境和生产环境配置" class="headerlink" title="拆分开发环境和生产环境配置"></a>拆分开发环境和生产环境配置</h4><!--区别-->
 
 <p>开发环境:开发环境主要实现的是热更新,不要压缩代码，完整的 sourceMap</p>
 <p>生产环境:生产环境主要实现的是压缩代码、提取 css 文件、合理的 sourceMap、分割代码</p>
@@ -252,9 +290,9 @@
 <p><a target="_blank" rel="noopener" href="https://webpack.docschina.org/guides/environment-variables/">https://webpack.docschina.org/guides/environment-variables/</a> 中环境变量的解释</p>
 <p>主要学习如何拆分配置</p>
 <h6 id="开发环境配置"><a href="#开发环境配置" class="headerlink" title="开发环境配置"></a>开发环境配置</h6><p>去除压缩代码的插件还有公共路径</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-comment">//开发环境配置</span><br><span class="hljs-keyword">const</span> &#123; merge &#125; = <span class="hljs-keyword">require</span>(<span class="hljs-string">&quot;webpack-merge&quot;</span>);<br><span class="hljs-keyword">const</span> common = <span class="hljs-keyword">require</span>(<span class="hljs-string">&quot;./webpack.common.js&quot;</span>);<br><span class="hljs-keyword">const</span> env = <span class="hljs-keyword">require</span>(<span class="hljs-string">&quot;../config/dev.env&quot;</span>);<br><span class="hljs-keyword">const</span> webpack =<span class="hljs-keyword">require</span>(<span class="hljs-string">&quot;webpack&quot;</span>)<br><span class="hljs-keyword">const</span> path = <span class="hljs-keyword">require</span>(<span class="hljs-string">&quot;path&quot;</span>);<br><br>module.exports = merge(common, &#123;<br>  mode: <span class="hljs-string">&quot;development&quot;</span>,<br>  plugins: [<br>    <span class="hljs-keyword">new</span> webpack.DefinePlugin(&#123;<br>      <span class="hljs-string">&quot;process.env&quot;</span>: env,<br>    &#125;),<br>  ],<br>  devServer: &#123;<br>    hot: <span class="hljs-literal">true</span>, <span class="hljs-comment">//热更新</span><br>    open: <span class="hljs-literal">true</span>, <span class="hljs-comment">//编译完自动打开浏览器</span><br>    compress: <span class="hljs-literal">true</span>, <span class="hljs-comment">//开启gzip压缩</span><br>    port: <span class="hljs-number">8088</span>, <span class="hljs-comment">//开启端口号</span><br>    <span class="hljs-comment">//托管的静态资源文件</span><br>    <span class="hljs-comment">//可通过数组的方式托管多个静态资源文件</span><br>    <span class="hljs-built_in">static</span>: &#123;<br>      <span class="hljs-built_in">directory</span>: path.join(__dirname, <span class="hljs-string">&quot;../public&quot;</span>),<br>    &#125;,<br>    client: &#123;<br>      <span class="hljs-comment">//在浏览器端打印编译进度</span><br>      progress: <span class="hljs-literal">true</span>,<br>    &#125;,<br>  &#125;,<br>&#125;)<br></code></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-comment">//开发环境配置</span><br><span class="hljs-keyword">const</span> &#123; merge &#125; = <span class="hljs-keyword">require</span>(<span class="hljs-string">&quot;webpack-merge&quot;</span>);<br><span class="hljs-keyword">const</span> <span class="hljs-variable constant_">common</span> = <span class="hljs-keyword">require</span>(<span class="hljs-string">&quot;./webpack.common.js&quot;</span>);<br><span class="hljs-keyword">const</span> <span class="hljs-variable constant_">env</span> = <span class="hljs-keyword">require</span>(<span class="hljs-string">&quot;../config/dev.env&quot;</span>);<br><span class="hljs-keyword">const</span> <span class="hljs-variable constant_">webpack</span> =<span class="hljs-keyword">require</span>(<span class="hljs-string">&quot;webpack&quot;</span>)<br><span class="hljs-keyword">const</span> <span class="hljs-variable constant_">path</span> = <span class="hljs-keyword">require</span>(<span class="hljs-string">&quot;path&quot;</span>);<br><br>module.exports = <span class="hljs-title function_ invoke__">merge</span>(common, &#123;<br>  <span class="hljs-attr">mode</span>: <span class="hljs-string">&quot;development&quot;</span>,<br>  <span class="hljs-attr">plugins</span>: [<br>    <span class="hljs-keyword">new</span> webpack.<span class="hljs-title function_ invoke__">DefinePlugin</span>(&#123;<br>      <span class="hljs-string">&quot;process.env&quot;</span>: env,<br>    &#125;),<br>  ],<br>  <span class="hljs-attr">devServer</span>: &#123;<br>    <span class="hljs-attr">hot</span>: <span class="hljs-literal">true</span>, //热更新<br>    <span class="hljs-attr">open</span>: <span class="hljs-literal">true</span>, //编译完自动打开浏览器<br>    <span class="hljs-attr">compress</span>: <span class="hljs-literal">true</span>, //开启gzip压缩<br>    <span class="hljs-attr">port</span>: <span class="hljs-number">8088</span>, //开启端口号<br>    //托管的静态资源文件<br>    //可通过数组的方式托管多个静态资源文件<br>    <span class="hljs-attr">static</span>: &#123;<br>      <span class="hljs-attr">directory</span>: path.<span class="hljs-title function_ invoke__">join</span>(__dirname, <span class="hljs-string">&quot;../public&quot;</span>),<br>    &#125;,<br>    <span class="hljs-attr">client</span>: &#123;<br>      //在浏览器端打印编译进度<br>      <span class="hljs-attr">progress</span>: <span class="hljs-literal">true</span>,<br>    &#125;,<br>  &#125;,<br>&#125;)<br></code></pre></td></tr></table></figure>
 
-<h6 id="生产环境配置"><a href="#生产环境配置" class="headerlink" title="生产环境配置"></a>生产环境配置</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//生产环境配置</span><br><span class="hljs-keyword">const</span> &#123; merge &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;webpack-merge&quot;</span>);<br><span class="hljs-keyword">const</span> common = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./webpack.common.js&quot;</span>);<br><span class="hljs-keyword">const</span> CssMinimizerWPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;css-minimizer-webpack-plugin&#x27;</span>)<br><span class="hljs-comment">// const BundleAnalyzerPlugin = require(&#x27;webpack-bundle-analyzer&#x27;).BundleAnalyzerPlugin;</span><br><span class="hljs-keyword">const</span> CompressionPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;compression-webpack-plugin&quot;</span>);<br><span class="hljs-built_in">module</span>.exports = merge(common, &#123;<br>  <span class="hljs-attr">mode</span>: <span class="hljs-string">&quot;production&quot;</span>,<br>  <span class="hljs-attr">plugins</span>: [<br>    <span class="hljs-keyword">new</span> CompressionPlugin()<br>    <span class="hljs-comment">//   new BundleAnalyzerPlugin()</span><br>  ],<br>  <span class="hljs-attr">module</span>: &#123;<br>    <span class="hljs-attr">rules</span>: [<br>      &#123;<br>        <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.html$/i</span>,<br>        loader: <span class="hljs-string">&quot;html-loader&quot;</span>,<br>        <span class="hljs-comment">// options: &#123;</span><br>        <span class="hljs-comment">//   esModule: false, //在开发环境中启用false</span><br>        <span class="hljs-comment">// &#125;,</span><br>      &#125;,<br>    ],<br>  &#125;,<br>  <span class="hljs-attr">optimization</span>:&#123;<br>    <span class="hljs-attr">minimizer</span>:[<br>        <span class="hljs-keyword">new</span> CssMinimizerWPlugin()<br>    ]<br>    &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+<h6 id="生产环境配置"><a href="#生产环境配置" class="headerlink" title="生产环境配置"></a>生产环境配置</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//生产环境配置</span><br><span class="hljs-keyword">const</span> &#123; merge &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;webpack-merge&quot;</span>);<br><span class="hljs-keyword">const</span> common = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;./webpack.common.js&quot;</span>);<br><span class="hljs-keyword">const</span> <span class="hljs-title class_">CssMinimizerWPlugin</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;css-minimizer-webpack-plugin&#x27;</span>)<br><span class="hljs-comment">// const BundleAnalyzerPlugin = require(&#x27;webpack-bundle-analyzer&#x27;).BundleAnalyzerPlugin;</span><br><span class="hljs-keyword">const</span> <span class="hljs-title class_">CompressionPlugin</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;compression-webpack-plugin&quot;</span>);<br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-title function_">merge</span>(common, &#123;<br>  <span class="hljs-attr">mode</span>: <span class="hljs-string">&quot;production&quot;</span>,<br>  <span class="hljs-attr">plugins</span>: [<br>    <span class="hljs-keyword">new</span> <span class="hljs-title class_">CompressionPlugin</span>()<br>    <span class="hljs-comment">//   new BundleAnalyzerPlugin()</span><br>  ],<br>  <span class="hljs-attr">module</span>: &#123;<br>    <span class="hljs-attr">rules</span>: [<br>      &#123;<br>        <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.html$/i</span>,<br>        <span class="hljs-attr">loader</span>: <span class="hljs-string">&quot;html-loader&quot;</span>,<br>        <span class="hljs-comment">// options: &#123;</span><br>        <span class="hljs-comment">//   esModule: false, //在开发环境中启用false</span><br>        <span class="hljs-comment">// &#125;,</span><br>      &#125;,<br>    ],<br>  &#125;,<br>  <span class="hljs-attr">optimization</span>:&#123;<br>    <span class="hljs-attr">minimizer</span>:[<br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">CssMinimizerWPlugin</span>()<br>    ]<br>    &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
 
 <h6 id="npm-脚本"><a href="#npm-脚本" class="headerlink" title="npm 脚本"></a>npm 脚本</h6><p>修改 package.json 里面的 scripts</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-string">&quot;scripts&quot;</span>: &#123;<br>   <span class="hljs-string">&quot;dev&quot;</span>: <span class="hljs-string">&quot;cross-env NODE_ENV=development webpack serve --config build/webpack.dev.js&quot;</span>,<br>   <span class="hljs-string">&quot;build&quot;</span>: <span class="hljs-string">&quot;cross-env NODE_ENV=production webpack --config build/webpack.prod.js&quot;</span>,<br>   <span class="hljs-string">&quot;test&quot;</span>: <span class="hljs-string">&quot;echo \&quot;</span><span class="hljs-keyword">Error</span>: <span class="hljs-keyword">no</span> <span class="hljs-keyword">test</span> specified\<span class="hljs-string">&quot; &amp;&amp; exit 1&quot;</span><br> &#125;,<br></code></pre></td></tr></table></figure>
@@ -279,7 +317,7 @@
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">yarn <span class="hljs-keyword">add </span>webpack-<span class="hljs-keyword">bundle-analyzer </span>-D<br></code></pre></td></tr></table></figure>
 
 <p>添加配置</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//webpack.prod.js</span><br><span class="hljs-keyword">const</span> BundleAnalyzerPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;webpack-bundle-analyzer&#x27;</span>).BundleAnalyzerPlugin;<br><br>plugins:[<br>    <span class="hljs-keyword">new</span> BundleAnalyzerPlugin()<br>]<br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//webpack.prod.js</span><br><span class="hljs-keyword">const</span> <span class="hljs-title class_">BundleAnalyzerPlugin</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;webpack-bundle-analyzer&#x27;</span>).<span class="hljs-property">BundleAnalyzerPlugin</span>;<br><br><span class="hljs-attr">plugins</span>:[<br>    <span class="hljs-keyword">new</span> <span class="hljs-title class_">BundleAnalyzerPlugin</span>()<br>]<br></code></pre></td></tr></table></figure>
 
 <p>运行 npm run build ，编译结束新开一个页面，可以看到 bundle 之间的关系</p>
 <h4 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h4><h5 id="cross-env"><a href="#cross-env" class="headerlink" title="cross-env"></a>cross-env</h5><p>定义:运行<a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=%E8%B7%A8%E5%B9%B3%E5%8F%B0&tn=24004469_oem_dg&rsv_dl=gh_pl_sl_csd">跨平台</a>设置和使用环境变量的脚本</p>
@@ -296,12 +334,12 @@
 <h6 id="定义编译后的全局变量"><a href="#定义编译后的全局变量" class="headerlink" title="定义编译后的全局变量"></a>定义编译后的全局变量</h6><p>通过 DefinePlugin 实现</p>
 <p>新建 config/dev.env.js</p>
 <h4 id="优化打包体积"><a href="#优化打包体积" class="headerlink" title="优化打包体积"></a>优化打包体积</h4><h5 id="开启-gzip-压缩"><a href="#开启-gzip-压缩" class="headerlink" title="开启 gzip 压缩"></a>开启 gzip 压缩</h5><p>安装</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">yarn <span class="hljs-builtin-name">add</span> compression-webpack-plugin -D<br></code></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">yarn <span class="hljs-built_in">add</span> compression-webpack-plugin -D<br></code></pre></td></tr></table></figure>
 
 <p>配置</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//webpack.prod.js</span><br><span class="hljs-keyword">const</span> CompressionPlugin = require(<span class="hljs-string">&quot;compression-webpack-plugin&quot;</span>);<br><br><span class="hljs-keyword">module</span>.<span class="hljs-keyword">exports</span> = &#123;<br>  plugins: [<span class="hljs-keyword">new</span> CompressionPlugin()],<br>&#125;;<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//webpack.prod.js</span><br><span class="hljs-type">const</span> <span class="hljs-variable">CompressionPlugin</span> <span class="hljs-operator">=</span> require(<span class="hljs-string">&quot;compression-webpack-plugin&quot;</span>);<br><br><span class="hljs-keyword">module</span>.<span class="hljs-keyword">exports</span> = &#123;<br>  plugins: [<span class="hljs-keyword">new</span> <span class="hljs-title class_">CompressionPlugin</span>()],<br>&#125;;<br><br></code></pre></td></tr></table></figure>
 
-<h5 id="css-压缩"><a href="#css-压缩" class="headerlink" title="css 压缩"></a>css 压缩</h5><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs oxygene">yarn <span class="hljs-keyword">add</span> css-minimizer-webpack-plugin --save-dev<br><br><br><span class="hljs-keyword">const</span> CssMinimizerPlugin = <span class="hljs-keyword">require</span>(<span class="hljs-string">&#x27;css-minimizer-webpack-plugin&#x27;</span>);<br><br>plugins:[<br>    <span class="hljs-keyword">new</span> CssMinimizerPlugin(),<br>]<br></code></pre></td></tr></table></figure>
+<h5 id="css-压缩"><a href="#css-压缩" class="headerlink" title="css 压缩"></a>css 压缩</h5><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs oxygene">yarn <span class="hljs-keyword">add</span> css-minimizer-webpack-plugin --save-dev<br><br><br><span class="hljs-keyword">const</span> CssMinimizerPlugin = <span class="hljs-keyword">require</span>(<span class="hljs-string">&#x27;css-minimizer-webpack-plugin&#x27;</span>)<span class="hljs-punctuation">;</span><br><br>plugins:[<br>    <span class="hljs-keyword">new</span> CssMinimizerPlugin(),<br>]<br></code></pre></td></tr></table></figure>
 
 <h5 id="externals"><a href="#externals" class="headerlink" title="externals"></a>externals</h5><p>防止将外部资源包打包到自己的 bundle 中</p>
 <h4 id="配置-Vue"><a href="#配置-Vue" class="headerlink" title="配置 Vue"></a>配置 Vue</h4><p>安装</p>
@@ -315,43 +353,99 @@
 </li>
 </ul>
 <p>配置</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// webpack.common.js</span><br><br><span class="hljs-keyword">const</span> &#123;VueLoaderPlugin&#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;vue-loader&#x27;</span>); <span class="hljs-comment">// vue加载器</span><br><br><span class="hljs-built_in">module</span>.exports=&#123;<br>    <span class="hljs-attr">module</span>:&#123;<br>        <span class="hljs-attr">rules</span>:[<br>            &#123;<br>                <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.vue$/</span>,<br>                loader: <span class="hljs-string">&#x27;vue-loader&#x27;</span>,<br>                <span class="hljs-attr">include</span>: [path.resolve(__dirname, <span class="hljs-string">&#x27;../src&#x27;</span>)]<br>            &#125;,<br>        ]<br>    &#125;,<br>    <span class="hljs-attr">plugins</span>:[<br>        <span class="hljs-keyword">new</span> VueLoaderPlugin(),<br>    ]<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// webpack.common.js</span><br><br><span class="hljs-keyword">const</span> &#123;<span class="hljs-title class_">VueLoaderPlugin</span>&#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;vue-loader&#x27;</span>); <span class="hljs-comment">// vue加载器</span><br><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span>=&#123;<br>    <span class="hljs-attr">module</span>:&#123;<br>        <span class="hljs-attr">rules</span>:[<br>            &#123;<br>                <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.vue$/</span>,<br>                <span class="hljs-attr">loader</span>: <span class="hljs-string">&#x27;vue-loader&#x27;</span>,<br>                <span class="hljs-attr">include</span>: [path.<span class="hljs-title function_">resolve</span>(__dirname, <span class="hljs-string">&#x27;../src&#x27;</span>)]<br>            &#125;,<br>        ]<br>    &#125;,<br>    <span class="hljs-attr">plugins</span>:[<br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">VueLoaderPlugin</span>(),<br>    ]<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h6 id=""><a href="#" class="headerlink" title=""></a><!--vue-loader要放在匹配规则的第一个，否则会报错--></h6>
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Webpack/">Webpack</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/Webpack/">Webpack</a>
-                    
-                  </div>
                 
               </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Webpack/" class="category-chain-item">Webpack</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Webpack/">#Webpack</a>
+      
+    </div>
+  
+</div>
+
+
               
-                <p class="note note-warning">
-                  
-                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Webpack进阶</div>
+      <div>http://example.com/2021/11/23/Webpack进阶/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>November 23, 2021</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
               
               
-                <div class="post-prevnext">
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/11/25/Mock%E4%BD%BF%E7%94%A8/">
+                      <a href="/2021/11/25/Mock%E4%BD%BF%E7%94%A8/" title="Mock使用">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Mock使用</span>
                         <span class="visible-mobile">Previous</span>
@@ -361,7 +455,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/11/21/Webpack%E5%85%A5%E9%97%A8/">
+                      <a href="/2021/11/21/Webpack%E5%85%A5%E9%97%A8/" title="Webpack入门">
                         <span class="hidden-mobile">Webpack入门</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -377,19 +471,53 @@
         </div>
       </div>
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
-      </div>
-    
+
+
+  </aside>
+
+
+    </div>
   </div>
 </div>
 
-<!-- Custom -->
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
 
 
     
@@ -405,19 +533,21 @@
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
   
-
   
-</footer>
+  
+  
+</div>
 
+  </footer>
 
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
@@ -436,7 +566,21 @@
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
 
 
 
@@ -447,56 +591,113 @@
 
 
 
-  
-
-
 
   
-    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
   
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
   
-    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
-  
-  
-    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
-  
-  
-    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
-  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
 
 
 
 
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-      typing(title)
-      
-    })(window, document);
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
 </html>

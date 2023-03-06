@@ -13,10 +13,10 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <meta property="og:type" content="website">
+  
+    <meta property="og:type" content="website">
 <meta property="og:title" content="Such is life">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Such is life">
@@ -24,15 +24,20 @@
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
+  
+  
   <title>Such is life</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
@@ -41,21 +46,42 @@
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
-  <header style="height: 100vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
       <strong>宿雾</strong>
@@ -78,7 +104,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                <span>首页</span>
               </a>
             </li>
           
@@ -90,7 +116,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                目录
+                <span>目录</span>
               </a>
             </li>
           
@@ -102,7 +128,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                分类
+                <span>分类</span>
               </a>
             </li>
           
@@ -114,7 +140,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                <span>标签</span>
               </a>
             </li>
           
@@ -126,7 +152,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                关于
+                <span>关于</span>
               </a>
             </li>
           
@@ -134,8 +160,9 @@
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -143,34 +170,40 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201503%2F02%2F20150302151953_Karsy.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1639876068&t=6437fab347f00b7ed0e94337aadf0a96') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="只要开始,永远不晚">
-              
-            </span>
+  
 
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201503%2F02%2F20150302151953_Karsy.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1639876068&t=6437fab347f00b7ed0e94337aadf0a96') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
           
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
+            <span id="subtitle" data-typed-text="只要开始,永远不晚"></span>
           
         </div>
+
+        
       </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
+        <div id="board"
+          style="margin-top: 0">
           
           <div class="container">
             <div class="row">
@@ -184,30 +217,200 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2022/06/07/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/" target="_self">
+          Vue生命周期详解
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/07/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/" target="_self">
+        <div>
+          1.beforeCreate 和 created 之间在这个生命周期之间，进行初始化事件，进行数据的观测，可以看到在 created 的时候数据已经和 data 属性进行绑定（放在 data 中的属性当值发生改变的同时，视图也会改变）。 注意：此时还是没有 el 选项 2.created 钩子函数和 beforeMount 间的生命周期首先，会判断对象是否有 el 选项：如果有的话就继续向下编译
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-07 10:00" pubdate>
+              2022-06-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Vue/" class="category-chain-item">Vue</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Vue/">#Vue</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/07/vue2%E5%93%8D%E5%BA%94%E5%BC%8F/" target="_self">
+          vue2响应式原理
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/07/vue2%E5%93%8D%E5%BA%94%E5%BC%8F/" target="_self">
+        <div>
+          Vue 在生命周期 beforeCreate 和 created 期间会初始化 data 会执行 Observe 函数 observe(data)执行 observe 函数会定义一个 ob，之后实例化 Observer 这个类 在 Observer 类里面会调用 def 函数给每一个 value 绑定一个ob** ， 这个ob指向 Observe 实例** 紧接着会判断传进来的 value 是对象
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-07 09:59" pubdate>
+              2022-06-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Vue2%E6%BA%90%E7%A0%81/" class="category-chain-item">Vue2源码</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%BA%90%E7%A0%81/">#源码</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/07/valueOf%E5%92%8CtoString/" target="_self">
+          valueOf和toString
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/07/valueOf%E5%92%8CtoString/" target="_self">
+        <div>
+          JS 中 valueOf() 方法的详解 JavaScript 中的 valueOf() 方法用于返回指定对象的原始值，若对象没有原始值，则将返回对象本身。通常由 JavaScript 内部调用，而不是在代码中显式调用。  默认情况下，valueOf 方法由 Object 后面的每个对象继承。 每个内置的核心对象都会覆盖此方法以返回适当的值。  JavaScript 的许多内置对象都重写了该函数，
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-07 09:53" pubdate>
+              2022-06-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JS/" class="category-chain-item">JS</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JS/">#JS</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2022/06/05/%E9%9D%A2%E8%AF%95(js%E9%83%A8%E5%88%86)/" target="_self">
           面试复习（js）
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2022/06/05/%E9%9D%A2%E8%AF%95(js%E9%83%A8%E5%88%86)/" target="_self">
-          
-          
-            
-          
-          函数的 argumentsarguments 不是一个数组 它是一个类数组，只不过它的属性从 0 开始排，依次为 0，1，2…最后还有 callee 和 length 属性
-常见的类数组还有：
-
-
-用 getElementByTagName/ClassName/Name（）获得的 HTMLCollection
-用 querySlector 获得的 nodeList
-
-
-
-
-下面有几个方法可以使类数
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/05/%E9%9D%A2%E8%AF%95(js%E9%83%A8%E5%88%86)/" target="_self">
+        <div>
+          函数的 argumentsarguments 不是一个数组 它是一个类数组，只不过它的属性从 0 开始排，依次为 0，1，2…最后还有 callee 和 length 属性 常见的类数组还有：   用 getElementByTagName/ClassName/Name（）获得的 HTMLCollection 用 querySlector 获得的 nodeList     下面有几个方法可以使类数
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -219,11 +422,25 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%9D%A2%E8%AF%95/" class="category-chain-item">面试</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -237,48 +454,54 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/05/10/valueOf%E5%92%8CtoString/" target="_self">
-          valueOf和toString
+        <a href="/2022/05/10/JS-API/" target="_self">
+          JS API
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2022/05/10/valueOf%E5%92%8CtoString/" target="_self">
-          
-          
-            
-          
-          JS 中 valueOf() 方法的详解
-JavaScript 中的 valueOf() 方法用于返回指定对象的原始值，若对象没有原始值，则将返回对象本身。通常由 JavaScript 内部调用，而不是在代码中显式调用。
-
-默认情况下，valueOf 方法由 Object 后面的每个对象继承。 每个内置的核心对象都会覆盖此方法以返回适当的值。
-
-JavaScript 的许多内置对象都重写了该函数，
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/05/10/JS-API/" target="_self">
+        <div>
+          字符串方法(String)split()split() 方法用于把一个字符串分割成字符串数组 123var data = &#x27;/user/showdata?pageIndex=1&amp;pageSize=5&#x27;        var s = data.split(&#x27;?&#x27;)        console.log(s); // [&#x27;/user/showd
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-05-10 09:51" pubdate>
+            <time datetime="2022-05-10 10:27" pubdate>
               2022-05-10
             </time>
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/JS/">JS</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JS/" class="category-chain-item">JS</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/JS/">JS</a>
+              <a href="/tags/js-api/">#js api</a>
             
           </div>
         
@@ -297,146 +520,49 @@ JavaScript 的许多内置对象都重写了该函数，
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2022/03/22/webpack%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/" target="_self">
-          
-          
-            
-          
-          构建时间优化thread-loader多进程打包，可以大大提高构建的速度，使用方法是将thread-loader放在比较费时间的loader之前，比如babel-loader
-12345678&#123;        test: /\.js$/,        use: [          &#x27;thread-loader&#x27;,          &#x27;babel-load
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/03/22/webpack%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6/" target="_self">
+        <div>
+          构建时间优化thread-loader多进程打包，可以大大提高构建的速度，使用方法是将thread-loader放在比较费时间的loader之前，比如babel-loader 12345678&#123;        test: /\.js$/,        use: [          &#x27;thread-loader&#x27;,          &#x27;babel-load
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-22 10:47" pubdate>
+            <time datetime="2022-03-22 10:48" pubdate>
               2022-03-22
             </time>
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Webpack/">Webpack</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Webpack/" class="category-chain-item">Webpack</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Webpack/">Webpack</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/03/14/vue2%E5%93%8D%E5%BA%94%E5%BC%8F/" target="_self">
-          vue2响应式原理
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/03/14/vue2%E5%93%8D%E5%BA%94%E5%BC%8F/" target="_self">
-          
-          
-            
-          
-          Vue 在生命周期 beforeCreate 和 created 期间会初始化 data
-会执行 Observe 函数
-observe(data)执行 observe 函数会定义一个 ob，之后实例化 Observer 这个类
-在 Observer 类里面会调用 def 函数给每一个 value 绑定一个ob** ， 这个ob指向 Observe 实例**
-紧接着会判断传进来的 value 是对象
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-14 11:27" pubdate>
-              2022-03-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Vue2%E6%BA%90%E7%A0%81/">Vue2源码</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%BA%90%E7%A0%81/">源码</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/03/14/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/" target="_self">
-          Vue生命周期详解
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/03/14/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/" target="_self">
-          
-          
-            
-          
-          
-1.beforeCreate 和 created 之间在这个生命周期之间，进行初始化事件，进行数据的观测，可以看到在 created 的时候数据已经和 data 属性进行绑定（放在 data 中的属性当值发生改变的同时，视图也会改变）。
-注意：此时还是没有 el 选项
-2.created 钩子函数和 beforeMount 间的生命周期首先，会判断对象是否有 el 选项：如果有的话就继续向下编译
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-14 11:27" pubdate>
-              2022-03-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Vue/">Vue</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Vue/">Vue</a>
+              <a href="/tags/Webpack/">#Webpack</a>
             
           </div>
         
@@ -455,21 +581,12 @@ observe(data)执行 observe 函数会定义一个 ob，之后实例化 Observer 
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2022/01/05/vue%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/" target="_self">
-          
-          
-            
-          
-          vue动态路由分俩种情况
-第一种是前端实现, 前端通过不同角色对路由进行筛选，之后在侧边栏进行展示
-
-第二种是后端实现，登录之后通过后端返回的menuList，在前端进行解析
-
-
-今天主要讲解第二种情况登录部分代码    (登录接口以及返回路由结果均有mock实现)12345678910111213file: @/views/loginonSubmit (a) &#123;      login(
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/01/05/vue%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/" target="_self">
+        <div>
+          vue动态路由分俩种情况 第一种是前端实现, 前端通过不同角色对路由进行筛选，之后在侧边栏进行展示  第二种是后端实现，登录之后通过后端返回的menuList，在前端进行解析   今天主要讲解第二种情况登录部分代码    (登录接口以及返回路由结果均有mock实现)12345678910111213file: @/views/loginonSubmit (a) &#123;      login(
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -481,18 +598,32 @@ observe(data)执行 observe 函数会定义一个 ob，之后实例化 Observer 
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Vue/">Vue</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Vue/" class="category-chain-item">Vue</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Vue/">Vue</a>
+              <a href="/tags/Vue/">#Vue</a>
             
           </div>
         
@@ -511,15 +642,12 @@ observe(data)执行 observe 函数会定义一个 ob，之后实例化 Observer 
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/12/28/JS%E4%B8%AD-call-apply-bind%E7%9A%84%E7%94%A8%E6%B3%95/" target="_self">
-          
-          
-            
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/12/28/JS%E4%B8%AD-call-apply-bind%E7%9A%84%E7%94%A8%E6%B3%95/" target="_self">
+        <div>
           在JS中 call apply bind 都是用来改变this指向的例1123456789var name = &#x27;军潮&#x27;, age = 20;var obj = &#123;	name: &#x27;小张&#x27;,	foo: function()&#123;		console.log(this.name +&#x27;年龄&#x27;+this.age)	&#125;&#1
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -531,18 +659,32 @@ observe(data)执行 observe 函数会定义一个 ob，之后实例化 Observer 
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/JS/">JS</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JS/" class="category-chain-item">JS</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/JS/">JS</a>
+              <a href="/tags/JS/">#JS</a>
             
           </div>
         
@@ -561,15 +703,12 @@ observe(data)执行 observe 函数会定义一个 ob，之后实例化 Observer 
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/12/28/%E5%85%A8%E6%99%AF%E6%8F%92%E4%BB%B6%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/" target="_self">
-          
-          
-            
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/12/28/%E5%85%A8%E6%99%AF%E6%8F%92%E4%BB%B6%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/" target="_self">
+        <div>
           引入官方插件例如点标记插件首先引入该插件,之后在实例化Viewer的时候  在plugins里面添加该插件 之后通过变量get到对应插件1234import &#123; MarkersPlugin &#125; from &#x27;photo-sphere-viewer/dist/plugins/markers.js&#x27; // 引入插件import &#x27;photo-sphere
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -581,18 +720,32 @@ observe(data)执行 observe 函数会定义一个 ob，之后实例化 Observer 
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/UI/">UI</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/UI/" class="category-chain-item">UI</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/UI/">UI</a>
+              <a href="/tags/UI/">#UI</a>
             
           </div>
         
@@ -611,105 +764,49 @@ observe(data)执行 observe 函数会定义一个 ob，之后实例化 Observer 
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/12/28/%E6%89%8B%E5%86%99/" target="_self">
-          
-          
-            
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/12/28/%E6%89%8B%E5%86%99/" target="_self">
+        <div>
           扁平化1234567891011121314151617181920212223242526// 1arr.flat(Infinity)// 2const res4 = [];const fn = arr =&gt; &#123;  for (let i = 0; i &lt; arr.length; i++) &#123;    if (Array.isArray(arr[i])) &#123;
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-12-28 20:03" pubdate>
+            <time datetime="2021-12-28 20:05" pubdate>
               2021-12-28
             </time>
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/JS/">JS</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JS/" class="category-chain-item">JS</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/JS/">JS</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/12/20/vue-source/" target="_self">
-          Vue源码学习
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/12/20/vue-source/" target="_self">
-          
-          
-            
-          
-          vue数据驱动前提: 
-
-你一定得用过 vue
-如果没有使用过的 可以去 官网 去看一看 使用教程
-
-Vue 与模板使用步骤:
-
-编写 页面 模板 
-直接在 HTML 标签中写 标签
-使用 template
-使用 单文件
-
-
-创建 Vue 的实例
-在 Vue 的构造函数中提供: data, methods, computed, watcher, props, …
-
-
-将 Vue 挂载到 页面中 (
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-12-20 00:00" pubdate>
-              2021-12-20
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Vue/">Vue</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Vue/">Vue</a>
+              <a href="/tags/JS/">#JS</a>
             
           </div>
         
@@ -745,19 +842,21 @@ Vue 与模板使用步骤:
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
   
-
   
-</footer>
+  
+  
+</div>
 
+  </footer>
 
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
@@ -776,7 +875,21 @@ Vue 与模板使用步骤:
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
 
 
 
@@ -787,43 +900,20 @@ Vue 与模板使用步骤:
 
 
 
-  
 
 
 
 
 
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-      typing(title)
-      
-    })(window, document);
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
 </html>

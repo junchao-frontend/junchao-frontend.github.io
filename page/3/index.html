@@ -13,10 +13,10 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <meta property="og:type" content="website">
+  
+    <meta property="og:type" content="website">
 <meta property="og:title" content="Such is life">
 <meta property="og:url" content="http://example.com/page/3/index.html">
 <meta property="og:site_name" content="Such is life">
@@ -24,15 +24,20 @@
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
+  
+  
   <title>Such is life</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
@@ -41,21 +46,42 @@
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
-  <header style="height: 100vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
       <strong>宿雾</strong>
@@ -78,7 +104,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                <span>首页</span>
               </a>
             </li>
           
@@ -90,7 +116,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                目录
+                <span>目录</span>
               </a>
             </li>
           
@@ -102,7 +128,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                分类
+                <span>分类</span>
               </a>
             </li>
           
@@ -114,7 +140,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                <span>标签</span>
               </a>
             </li>
           
@@ -126,7 +152,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                关于
+                <span>关于</span>
               </a>
             </li>
           
@@ -134,8 +160,9 @@
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -143,34 +170,40 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201503%2F02%2F20150302151953_Karsy.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1639876068&t=6437fab347f00b7ed0e94337aadf0a96') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="只要开始,永远不晚">
-              
-            </span>
+  
 
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201503%2F02%2F20150302151953_Karsy.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1639876068&t=6437fab347f00b7ed0e94337aadf0a96') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
           
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
+            <span id="subtitle" data-typed-text="只要开始,永远不晚"></span>
           
         </div>
+
+        
       </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
+        <div id="board"
+          style="margin-top: 0">
           
           <div class="container">
             <div class="row">
@@ -189,47 +222,49 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/11/19/JS%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/" target="_self">
-          
-          
-            
-          
-          
-Array().push  添加一个元素到数组末尾
-
-Array().unshift() 添加元素到头部
-
-Array().pop 删除末尾的元素
-
-Array().shift() 删除头部
-
-Array.split() 用于把一个字符串分割成字符串数组split(separator,howmany)separator    必需。字符串或正则表达式，从该参数指定的地方分割 stringObje
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/11/19/JS%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/" target="_self">
+        <div>
+          Array().push  添加一个元素到数组末尾  Array().unshift() 添加元素到头部  Array().pop 删除末尾的元素  Array().shift() 删除头部  Array.split() 用于把一个字符串分割成字符串数组split(separator,howmany)separator    必需。字符串或正则表达式，从该参数指定的地方分割 stringObje
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-19 09:25" pubdate>
+            <time datetime="2021-11-19 09:26" pubdate>
               2021-11-19
             </time>
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/JS/">JS</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JS/" class="category-chain-item">JS</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/JS/">JS</a>
+              <a href="/tags/JS/">#JS</a>
             
           </div>
         
@@ -248,15 +283,12 @@ Array.split() 用于把一个字符串分割成字符串数组split(separator,ho
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/11/19/vue.js/" target="_self">
-          
-          
-            
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/11/19/vue.js/" target="_self">
+        <div>
           Vuecomputed属性1234567891011121314&lt;body&gt;&lt;p&gt;&#123;&#123;Fullname&#125;&#125;&lt;/p&gt;&lt;/body&gt;data () &#123;   return &#123;     firstName: &#x27;小&#x27;,     lastName: &#x27;明&#x27;   &
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -268,18 +300,32 @@ Array.split() 用于把一个字符串分割成字符串数组split(separator,ho
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Vue/">Vue</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Vue/" class="category-chain-item">Vue</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Vue/">Vue</a>
+              <a href="/tags/Vue/">#Vue</a>
             
           </div>
         
@@ -298,39 +344,49 @@ Array.split() 用于把一个字符串分割成字符串数组split(separator,ho
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/11/19/cesium%E7%AE%80%E5%8D%95%E8%AE%B2%E8%A7%A3/" target="_self">
-          
-          
-            
-          
-          1 Cesium与Three.jscesium和three.js都是基于WebGL的JS库，用于在浏览器中创建和显示动画3D计算机图形。Cesium侧重行星级渲染和GIS功能，Three.js侧重3D图形学本身，提供了通用3D API，二者可以结合起来使用来完成功能复杂的应用。
-1.1 Three.jsOpenGL(开放图形库)用于渲染2D、3D矢量图形的跨语言、跨平台的应用程序编程接口（API）
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/11/19/cesium%E7%AE%80%E5%8D%95%E8%AE%B2%E8%A7%A3/" target="_self">
+        <div>
+          1 Cesium与Three.jscesium和three.js都是基于WebGL的JS库，用于在浏览器中创建和显示动画3D计算机图形。Cesium侧重行星级渲染和GIS功能，Three.js侧重3D图形学本身，提供了通用3D API，二者可以结合起来使用来完成功能复杂的应用。 1.1 Three.jsOpenGL(开放图形库)用于渲染2D、3D矢量图形的跨语言、跨平台的应用程序编程接口（API）
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-19 09:16" pubdate>
+            <time datetime="2021-11-19 09:17" pubdate>
               2021-11-19
             </time>
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Cesium/">Cesium</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Cesium/" class="category-chain-item">Cesium</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Cesium/">Cesium</a>
+              <a href="/tags/Cesium/">#Cesium</a>
             
           </div>
         
@@ -344,45 +400,54 @@ Array.split() 用于把一个字符串分割成字符串数组split(separator,ho
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/11/18/Photo%20sphere%20viewer%E5%85%A8%E6%99%AF%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
+        <a href="/2021/11/19/Photo%20sphere%20viewer%E5%85%A8%E6%99%AF%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
           全景插件使用
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/11/18/Photo%20sphere%20viewer%E5%85%A8%E6%99%AF%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
-          
-          
-            
-          
-          Photo sphere viewer全景插件的使用官网：https://photo-sphere-viewer.js.org/guide/
-npm 安装 ：npm install photo-sphere-viewer
-页面引入 import { Viewer } from ‘photo-sphere-viewer’import ‘photo-sphere-viewer/dist/photo-s
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/11/19/Photo%20sphere%20viewer%E5%85%A8%E6%99%AF%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
+        <div>
+          Photo sphere viewer全景插件的使用官网：https://photo-sphere-viewer.js.org/guide/ npm 安装 ：npm install photo-sphere-viewer 页面引入 import { Viewer } from ‘photo-sphere-viewer’import ‘photo-sphere-viewer/dist/photo-s
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-18 19:33" pubdate>
-              2021-11-18
+            <time datetime="2021-11-19 09:03" pubdate>
+              2021-11-19
             </time>
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/UI/">UI</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/UI/" class="category-chain-item">UI</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/API/">API</a>
+              <a href="/tags/API/">#API</a>
             
           </div>
         
@@ -418,19 +483,21 @@ npm 安装 ：npm install photo-sphere-viewer
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
   
-
   
-</footer>
+  
+  
+</div>
 
+  </footer>
 
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
@@ -449,7 +516,21 @@ npm 安装 ：npm install photo-sphere-viewer
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
 
 
 
@@ -460,43 +541,20 @@ npm 安装 ：npm install photo-sphere-viewer
 
 
 
-  
 
 
 
 
 
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-      typing(title)
-      
-    })(window, document);
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
 </html>

@@ -13,10 +13,10 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <meta name="description" content="vue数据驱动前提:   你一定得用过 vue 如果没有使用过的 可以去 官网 去看一看 使用教程  Vue 与模板使用步骤:  编写 页面 模板  直接在 HTML 标签中写 标签 使用 template 使用 单文件   创建 Vue 的实例 在 Vue 的构造函数中提供: data, methods, computed, watcher, props, …   将 Vue 挂载到 页面中 (">
+  
+    <meta name="description" content="vue数据驱动前提:   你一定得用过 vue 如果没有使用过的 可以去 官网 去看一看 使用教程  Vue 与模板使用步骤:  编写 页面 模板  直接在 HTML 标签中写 标签 使用 template 使用 单文件   创建 Vue 的实例 在 Vue 的构造函数中提供: data, methods, computed, watcher, props, …   将 Vue 挂载到 页面中 (">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue源码学习">
 <meta property="og:url" content="http://example.com/2021/12/20/vue-source/index.html">
@@ -31,30 +31,26 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/2021/12/20/vue-source/assets/2019-11-21-20-38-45.png">
   
+  
+  
   <title>Vue源码学习 - Such is life</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
+
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
-    
-  
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
 
-  
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
-  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
@@ -63,21 +59,42 @@
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
       <strong>宿雾</strong>
@@ -100,7 +117,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                <span>首页</span>
               </a>
             </li>
           
@@ -112,7 +129,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                目录
+                <span>目录</span>
               </a>
             </li>
           
@@ -124,7 +141,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                分类
+                <span>分类</span>
               </a>
             </li>
           
@@ -136,7 +153,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                <span>标签</span>
               </a>
             </li>
           
@@ -148,7 +165,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                关于
+                <span>关于</span>
               </a>
             </li>
           
@@ -156,8 +173,9 @@
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -165,57 +183,71 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201503%2F02%2F20150302151953_Karsy.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1639876068&t=6437fab347f00b7ed0e94337aadf0a96') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Vue源码学习">
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-12-20 00:00" pubdate>
-        December 20, 2021 am
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      8.7k 字
-    </span>
   
 
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      27 分钟
-    </span>
-  
-
-  
-  
-</div>
-
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fblog%2F201503%2F02%2F20150302151953_Karsy.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1639876068&t=6437fab347f00b7ed0e94337aadf0a96') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Vue源码学习"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-12-20 00:00" pubdate>
+          December 20, 2021 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          8.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          28 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
@@ -224,16 +256,22 @@
 
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
     <div class="col-lg-8 nopadding-x-md">
       <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
+        <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">Vue源码学习</h1>
             
-            <div class="markdown-body">
-              <h1 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h1><h3 id="数据驱动"><a href="#数据驱动" class="headerlink" title="数据驱动"></a>数据驱动</h3><p>前提: </p>
+            
+              <div class="markdown-body">
+                
+                <h1 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h1><h3 id="数据驱动"><a href="#数据驱动" class="headerlink" title="数据驱动"></a>数据驱动</h3><p>前提: </p>
 <ol>
 <li>你一定得用过 vue</li>
 <li>如果没有使用过的 可以去 官网 去看一看 使用教程</li>
@@ -299,10 +337,10 @@
 <p>在 Vue 中每一个标签可以是真正的 HTML 标签, 也可以是自定义组件, 问怎么区分???</p>
 <p>在 Vue 源码中其实将所有可以用的 HTML 标签已经存起来了.</p>
 <p>假设这里是考虑几个标签:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> tags = <span class="hljs-string">&#x27;div,p,a,img,ul,li&#x27;</span>.split(<span class="hljs-string">&#x27;,&#x27;</span>);<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> tags = <span class="hljs-string">&#x27;div,p,a,img,ul,li&#x27;</span>.<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;,&#x27;</span>);<br></code></pre></td></tr></table></figure>
 
 <p>需要一个函数, 判断一个标签名是否为 内置的 标签</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isHTMLTag</span>(<span class="hljs-params"> tagName </span>) </span>&#123;<br>  tagName = tagName.toLowerCase();<br>  <span class="hljs-keyword">if</span> ( tags.indexOf( tagName ) &gt; -<span class="hljs-number">1</span> ) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">isHTMLTag</span>(<span class="hljs-params"> tagName </span>) &#123;<br>  tagName = tagName.<span class="hljs-title function_">toLowerCase</span>();<br>  <span class="hljs-keyword">if</span> ( tags.<span class="hljs-title function_">indexOf</span>( tagName ) &gt; -<span class="hljs-number">1</span> ) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>模板是任意编写的, 可以写的很简单, 也可以写到很复杂, indexOf 内部也是要循环的</p>
 <p>如果有 6 中内置标签, 而模板中有 10 个标签需要判断, 那么就需要执行 60 次循环</p>
@@ -347,9 +385,9 @@
 <li>我们在使用 Vue 时候, 赋值属性获得属性都是直接使用的 Vue 实例</li>
 <li>我们在设计属性值的时候, 页面的数据更新</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">Object</span>.defineProperty( 对象, <span class="hljs-string">&#x27;设置什么属性名&#x27;</span>, &#123;<br>  writeable<br>  configurable<br>  <span class="hljs-attr">enumerable</span>:  控制属性是否可枚举, 是不是可以被 <span class="hljs-keyword">for</span>-<span class="hljs-keyword">in</span> 取出来<br>  <span class="hljs-function"><span class="hljs-title">set</span>(<span class="hljs-params"></span>)</span> &#123;&#125;  赋值触发<br>  <span class="hljs-function"><span class="hljs-title">get</span>(<span class="hljs-params"></span>)</span> &#123;&#125;  取值触发<br>&#125; )<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Object</span>.<span class="hljs-title function_">defineProperty</span>( 对象, <span class="hljs-string">&#x27;设置什么属性名&#x27;</span>, &#123;<br>  writeable<br>  configurable<br>  <span class="hljs-attr">enumerable</span>:  控制属性是否可枚举, 是不是可以被 <span class="hljs-keyword">for</span>-<span class="hljs-keyword">in</span> 取出来<br>  <span class="hljs-title function_">set</span>(<span class="hljs-params"></span>) &#123;&#125;  赋值触发<br>  <span class="hljs-title function_">get</span>(<span class="hljs-params"></span>) &#123;&#125;  取值触发<br>&#125; )<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 简化后的版本</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">defineReactive</span>(<span class="hljs-params"> target, key, value, enumerable </span>) </span>&#123;<br>  <span class="hljs-comment">// 函数内部就是一个局部作用域, 这个 value 就只在函数内使用的变量 ( 闭包 )</span><br>  <span class="hljs-built_in">Object</span>.defineProperty( target, key, &#123;<br>    <span class="hljs-attr">configurable</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">enumerable</span>: !!enumerable,<br><br>    get () &#123;<br>      <span class="hljs-built_in">console</span>.log( <span class="hljs-string">`读取 o 的 <span class="hljs-subst">$&#123;key&#125;</span> 属性`</span> ); <span class="hljs-comment">// 额外</span><br>      <span class="hljs-keyword">return</span> value;<br>    &#125;,<br>    set ( newVal ) &#123;<br>      <span class="hljs-built_in">console</span>.log( <span class="hljs-string">`设置 o 的 <span class="hljs-subst">$&#123;key&#125;</span> 属性为: <span class="hljs-subst">$&#123;newVal&#125;</span>`</span> ); <span class="hljs-comment">// 额外</span><br>      value = newVal;<br>    &#125;<br>  &#125; )<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 简化后的版本</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">defineReactive</span>(<span class="hljs-params"> target, key, value, enumerable </span>) &#123;<br>  <span class="hljs-comment">// 函数内部就是一个局部作用域, 这个 value 就只在函数内使用的变量 ( 闭包 )</span><br>  <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">defineProperty</span>( target, key, &#123;<br>    <span class="hljs-attr">configurable</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">enumerable</span>: !!enumerable,<br><br>    get () &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>( <span class="hljs-string">`读取 o 的 <span class="hljs-subst">$&#123;key&#125;</span> 属性`</span> ); <span class="hljs-comment">// 额外</span><br>      <span class="hljs-keyword">return</span> value;<br>    &#125;,<br>    set ( newVal ) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>( <span class="hljs-string">`设置 o 的 <span class="hljs-subst">$&#123;key&#125;</span> 属性为: <span class="hljs-subst">$&#123;newVal&#125;</span>`</span> ); <span class="hljs-comment">// 额外</span><br>      value = newVal;<br>    &#125;<br>  &#125; )<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 <p>实际开发中对象一般是有多级</p>
@@ -404,25 +442,25 @@
 <p>由于需要在更新数据的时候, 更新页面的内容<br>所以 app._data 访问的成员 与 app 访问的成员应该时同一个成员</p>
 <p>由于 app._data 已经是响应式的对象了, 所以只需要让 app 访问的成员去访问 app._data 的对应成员就可以了.</p>
 <p>例如:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">app.name 转换为 app._data.name<br>app.xxx 转换为 app._data.xxx<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">app.<span class="hljs-property">name</span> 转换为 app.<span class="hljs-property">_data</span>.<span class="hljs-property">name</span><br>app.<span class="hljs-property">xxx</span> 转换为 app.<span class="hljs-property">_data</span>.<span class="hljs-property">xxx</span><br></code></pre></td></tr></table></figure>
 
 <p>引入了一个函数 proxy( target, src, prop ), 将 target 的操作 映射到 src.prop 上<br>这里是因为当时没有 <code>Proxy</code> 语法 ( ES6 )</p>
 <p>我们之前处理的 rectify 方法已经不行了, 我们需要一个新的方法来处理</p>
 <p>提供一个 Observer 的方法, 在方法中对 属性进行处理<br>可以将这个方法封装发到 initData 方法中</p>
-<h2 id="解释-proxy"><a href="#解释-proxy" class="headerlink" title="解释 proxy"></a>解释 proxy</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js">app._data.name<br><span class="hljs-comment">// vue 设计, 不希望访问 _ 开头的数据</span><br><span class="hljs-comment">// vue 中有一个潜规则:</span><br><span class="hljs-comment">//  - _ 开头的数据是私有数据</span><br><span class="hljs-comment">//  - $ 开头的是只读数据</span><br>app.name<br><span class="hljs-comment">// 将 对 _data.xxx 的访问 交给了 实例</span><br><br><span class="hljs-comment">// 重点: 访问 app 的 xxx 就是在访问 app._data.xxx</span><br></code></pre></td></tr></table></figure>
+<h2 id="解释-proxy"><a href="#解释-proxy" class="headerlink" title="解释 proxy"></a>解释 proxy</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js">app.<span class="hljs-property">_data</span>.<span class="hljs-property">name</span><br><span class="hljs-comment">// vue 设计, 不希望访问 _ 开头的数据</span><br><span class="hljs-comment">// vue 中有一个潜规则:</span><br><span class="hljs-comment">//  - _ 开头的数据是私有数据</span><br><span class="hljs-comment">//  - $ 开头的是只读数据</span><br>app.<span class="hljs-property">name</span><br><span class="hljs-comment">// 将 对 _data.xxx 的访问 交给了 实例</span><br><br><span class="hljs-comment">// 重点: 访问 app 的 xxx 就是在访问 app._data.xxx</span><br></code></pre></td></tr></table></figure>
 
 <p>假设:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span>  o1 = &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;张三&#x27;</span> &#125;;<br><span class="hljs-comment">// 要有一个对象 o2, 在访问 o2.name 的时候想要访问的是 o1.name</span><br><span class="hljs-built_in">Object</span>.defineProperty( o2, <span class="hljs-string">&#x27;name&#x27;</span>, &#123;<br>  <span class="hljs-function"><span class="hljs-title">get</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">return</span> o1.name<br>  &#125;<br>&#125; );<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span>  o1 = &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;张三&#x27;</span> &#125;;<br><span class="hljs-comment">// 要有一个对象 o2, 在访问 o2.name 的时候想要访问的是 o1.name</span><br><span class="hljs-title class_">Object</span>.<span class="hljs-title function_">defineProperty</span>( o2, <span class="hljs-string">&#x27;name&#x27;</span>, &#123;<br>  <span class="hljs-title function_">get</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> o1.<span class="hljs-property">name</span><br>  &#125;<br>&#125; );<br></code></pre></td></tr></table></figure>
 
 <p>访问 app 的 xxx 就是在访问 app._data.xxx</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">Object</span>.defineProperty( app, <span class="hljs-string">&#x27;name&#x27;</span>, &#123;<br>  <span class="hljs-function"><span class="hljs-title">get</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">return</span> app._data.name<br>  &#125;,<br>  <span class="hljs-function"><span class="hljs-title">set</span>(<span class="hljs-params"> newVal </span>)</span> &#123;<br>    app._data.name = newVal;<br>  &#125;<br>&#125; )<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Object</span>.<span class="hljs-title function_">defineProperty</span>( app, <span class="hljs-string">&#x27;name&#x27;</span>, &#123;<br>  <span class="hljs-title function_">get</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> app.<span class="hljs-property">_data</span>.<span class="hljs-property">name</span><br>  &#125;,<br>  <span class="hljs-title function_">set</span>(<span class="hljs-params"> newVal </span>) &#123;<br>    app.<span class="hljs-property">_data</span>.<span class="hljs-property">name</span> = newVal;<br>  &#125;<br>&#125; )<br></code></pre></td></tr></table></figure>
 
 <p>将属性的操作转换为 参数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">proxy</span>(<span class="hljs-params"> app, key </span>) </span>&#123;<br>  <span class="hljs-built_in">Object</span>.defineProperty( app, key, &#123;<br>    <span class="hljs-function"><span class="hljs-title">get</span>(<span class="hljs-params"></span>)</span> &#123;<br>      <span class="hljs-keyword">return</span> app._data[ key ]<br>    &#125;,<br>    <span class="hljs-function"><span class="hljs-title">set</span>(<span class="hljs-params"> newVal </span>)</span> &#123;<br>      app._data[ key ] = newVal;<br>    &#125;<br>  &#125; )<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">proxy</span>(<span class="hljs-params"> app, key </span>) &#123;<br>  <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">defineProperty</span>( app, key, &#123;<br>    <span class="hljs-title function_">get</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">return</span> app.<span class="hljs-property">_data</span>[ key ]<br>    &#125;,<br>    <span class="hljs-title function_">set</span>(<span class="hljs-params"> newVal </span>) &#123;<br>      app.<span class="hljs-property">_data</span>[ key ] = newVal;<br>    &#125;<br>  &#125; )<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>问题: </p>
 <p>在 vue 中不仅仅是只有 data 属性, properties 等等 都会挂载到 Vue 实例上</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">proxy</span>(<span class="hljs-params"> app, prop, key </span>) </span>&#123;<br>  <span class="hljs-built_in">Object</span>.defineProperty( app, key, &#123;<br>    <span class="hljs-function"><span class="hljs-title">get</span>(<span class="hljs-params"></span>)</span> &#123;<br>      <span class="hljs-keyword">return</span> app[ prop ][ key ]<br>    &#125;,<br>    <span class="hljs-function"><span class="hljs-title">set</span>(<span class="hljs-params"> newVal </span>)</span> &#123;<br>      app[ prop ][ key ] = newVal;<br>    &#125;<br>  &#125; )<br>&#125;;<br><br><span class="hljs-comment">// 如果将 _data 的成员映射到 实例上</span><br>proxy( 实例, <span class="hljs-string">&#x27;_data&#x27;</span>, 属性名 )<br><span class="hljs-comment">// 如果要 _properties 的成员映射到 实例上</span><br>proxy( 实例, <span class="hljs-string">&#x27;_properties&#x27;</span>, 属性名 )<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">proxy</span>(<span class="hljs-params"> app, prop, key </span>) &#123;<br>  <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">defineProperty</span>( app, key, &#123;<br>    <span class="hljs-title function_">get</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">return</span> app[ prop ][ key ]<br>    &#125;,<br>    <span class="hljs-title function_">set</span>(<span class="hljs-params"> newVal </span>) &#123;<br>      app[ prop ][ key ] = newVal;<br>    &#125;<br>  &#125; )<br>&#125;;<br><br><span class="hljs-comment">// 如果将 _data 的成员映射到 实例上</span><br><span class="hljs-title function_">proxy</span>( 实例, <span class="hljs-string">&#x27;_data&#x27;</span>, 属性名 )<br><span class="hljs-comment">// 如果要 _properties 的成员映射到 实例上</span><br><span class="hljs-title function_">proxy</span>( 实例, <span class="hljs-string">&#x27;_properties&#x27;</span>, 属性名 )<br></code></pre></td></tr></table></figure>
 
 <h1 id="发布订阅模式-1"><a href="#发布订阅模式-1" class="headerlink" title="发布订阅模式"></a>发布订阅模式</h1><p>目标: 解耦, 让各个模块之间没有紧密的联系</p>
 <p>现在的处理办法是 属性在更新的 时候 调用 mountComponent 方法. </p>
@@ -624,7 +662,7 @@
 <li>rollup 源文件的路径 –file 生成文件的路径 –format umd –name 生成的库的名字</li>
 </ol>
 <p>面试题:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> params = <span class="hljs-string">&#x27;a=b&amp;c=d&amp;e=f&#x27;</span>;<br><br><span class="hljs-comment">// params.split( &#x27;&amp;&#x27; ).reduce( (res, v) =&gt; &#123;</span><br><span class="hljs-comment">//   let kv = v.split( &#x27;=&#x27; );</span><br><span class="hljs-comment">//   res[ kv[ 0 ] ] = kv[ 1 ];</span><br><span class="hljs-comment">//   return res;</span><br><span class="hljs-comment">// &#125;, &#123;&#125; );</span><br><br><span class="hljs-keyword">let</span> t = <span class="hljs-literal">null</span>;<br>params.split( <span class="hljs-string">&#x27;&amp;&#x27;</span> ).reduce( <span class="hljs-function">(<span class="hljs-params"> res, v </span>) =&gt;</span> ( t = v.split( <span class="hljs-string">&#x27;=&#x27;</span> ), res[ t[ <span class="hljs-number">0</span> ] ] = t[ <span class="hljs-number">1</span> ], res ), &#123;&#125; );<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> params = <span class="hljs-string">&#x27;a=b&amp;c=d&amp;e=f&#x27;</span>;<br><br><span class="hljs-comment">// params.split( &#x27;&amp;&#x27; ).reduce( (res, v) =&gt; &#123;</span><br><span class="hljs-comment">//   let kv = v.split( &#x27;=&#x27; );</span><br><span class="hljs-comment">//   res[ kv[ 0 ] ] = kv[ 1 ];</span><br><span class="hljs-comment">//   return res;</span><br><span class="hljs-comment">// &#125;, &#123;&#125; );</span><br><br><span class="hljs-keyword">let</span> t = <span class="hljs-literal">null</span>;<br>params.<span class="hljs-title function_">split</span>( <span class="hljs-string">&#x27;&amp;&#x27;</span> ).<span class="hljs-title function_">reduce</span>( <span class="hljs-function">(<span class="hljs-params"> res, v </span>) =&gt;</span> ( t = v.<span class="hljs-title function_">split</span>( <span class="hljs-string">&#x27;=&#x27;</span> ), res[ t[ <span class="hljs-number">0</span> ] ] = t[ <span class="hljs-number">1</span> ], res ), &#123;&#125; );<br><br></code></pre></td></tr></table></figure>
 
 
 
@@ -674,40 +712,96 @@
 <li>不使用 JSON.stringify 实现将 对象转换为 JSON 格式的字符串</li>
 </ul>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Vue/">Vue</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/Vue/">Vue</a>
-                    
-                  </div>
                 
               </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Vue/" class="category-chain-item">Vue</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Vue/">#Vue</a>
+      
+    </div>
+  
+</div>
+
+
               
-                <p class="note note-warning">
-                  
-                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Vue源码学习</div>
+      <div>http://example.com/2021/12/20/vue-source/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>December 20, 2021</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
               
               
-                <div class="post-prevnext">
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/12/28/%E6%89%8B%E5%86%99/">
+                      <a href="/2021/12/28/%E6%89%8B%E5%86%99/" title="JS手写">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">JS手写</span>
                         <span class="visible-mobile">Previous</span>
@@ -717,7 +811,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/11/30/Vuex-%E4%B8%AD-module%E7%9A%84%E4%BD%BF%E7%94%A8/">
+                      <a href="/2021/11/30/Vuex-%E4%B8%AD-module%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Vuex 中 module的使用">
                         <span class="hidden-mobile">Vuex 中 module的使用</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -733,19 +827,53 @@
         </div>
       </div>
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
-      </div>
-    
+
+
+  </aside>
+
+
+    </div>
   </div>
 </div>
 
-<!-- Custom -->
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
 
 
     
@@ -761,19 +889,21 @@
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
   
-
   
-</footer>
+  
+  
+</div>
 
+  </footer>
 
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
@@ -792,7 +922,21 @@
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
 
 
 
@@ -803,56 +947,113 @@
 
 
 
-  
-
-
 
   
-    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
   
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
   
-    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
-  
-  
-    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
-  
-  
-    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
-  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
 
 
 
 
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-      typing(title)
-      
-    })(window, document);
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
 </html>

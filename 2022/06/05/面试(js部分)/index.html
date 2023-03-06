@@ -16,19 +16,19 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <meta name="description" content="面试(js部分)函数的argumentsarguments不是一个数组 它是一个类数组，只不过它的属性从0开始排，依次为0，1，2…最后还有callee和length属性 常见的类数组还有：   用getElementByTagName&#x2F;ClassName&#x2F;Name（）获得的HTMLCollection 用querySlector获得的nodeList     下面有几个方法可以使类数组转为数组">
+  <meta name="description" content="函数的 argumentsarguments 不是一个数组 它是一个类数组，只不过它的属性从 0 开始排，依次为 0，1，2…最后还有 callee 和 length 属性 常见的类数组还有：   用 getElementByTagName&#x2F;ClassName&#x2F;Name（）获得的 HTMLCollection 用 querySlector 获得的 nodeList     下面有几个方法可以使类数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Such is life">
-<meta property="og:url" content="http://example.com/2022/05/10/%E9%9D%A2%E8%AF%95(js%E9%83%A8%E5%88%86)/index.html">
+<meta property="og:title" content="面试复习（js）">
+<meta property="og:url" content="http://example.com/2022/06/05/%E9%9D%A2%E8%AF%95(js%E9%83%A8%E5%88%86)/index.html">
 <meta property="og:site_name" content="Such is life">
-<meta property="og:description" content="面试(js部分)函数的argumentsarguments不是一个数组 它是一个类数组，只不过它的属性从0开始排，依次为0，1，2…最后还有callee和length属性 常见的类数组还有：   用getElementByTagName&#x2F;ClassName&#x2F;Name（）获得的HTMLCollection 用querySlector获得的nodeList     下面有几个方法可以使类数组转为数组">
+<meta property="og:description" content="函数的 argumentsarguments 不是一个数组 它是一个类数组，只不过它的属性从 0 开始排，依次为 0，1，2…最后还有 callee 和 length 属性 常见的类数组还有：   用 getElementByTagName&#x2F;ClassName&#x2F;Name（）获得的 HTMLCollection 用 querySlector 获得的 nodeList     下面有几个方法可以使类数">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-05-10T03:08:02.733Z">
-<meta property="article:modified_time" content="2022-05-10T07:55:39.003Z">
+<meta property="article:published_time" content="2022-06-05T09:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-07T01:51:12.971Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
   
-  <title>Such is life</title>
+  <title>面试复习（js） - Such is life</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -77,7 +77,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>小潮</strong>
+      <strong>宿雾</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -168,7 +168,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="">
+            <span class="h2" id="subtitle" title="面试复习（js）">
               
             </span>
 
@@ -178,8 +178,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-05-10 11:08" pubdate>
-        May 10, 2022 am
+      <time datetime="2022-06-05 17:00" pubdate>
+        June 5, 2022 pm
       </time>
     </span>
   
@@ -227,15 +227,15 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">面试复习（js）</h1>
             
             <div class="markdown-body">
-              <h1 id="面试-js部分"><a href="#面试-js部分" class="headerlink" title="面试(js部分)"></a>面试(js部分)</h1><h2 id="函数的arguments"><a href="#函数的arguments" class="headerlink" title="函数的arguments"></a>函数的arguments</h2><p>arguments不是一个数组 它是一个类数组，只不过它的属性从0开始排，依次为0，1，2…最后还有callee和length属性</p>
+              <h2 id="函数的-arguments"><a href="#函数的-arguments" class="headerlink" title="函数的 arguments"></a>函数的 arguments</h2><p>arguments 不是一个数组 它是一个类数组，只不过它的属性从 0 开始排，依次为 0，1，2…最后还有 callee 和 length 属性</p>
 <p>常见的类数组还有：</p>
 <ol>
 <li><ol>
-<li>用getElementByTagName/ClassName/Name（）获得的HTMLCollection</li>
-<li>用querySlector获得的nodeList</li>
+<li>用 getElementByTagName/ClassName/Name（）获得的 HTMLCollection</li>
+<li>用 querySlector 获得的 nodeList</li>
 </ol>
 </li>
 </ol>
@@ -244,53 +244,51 @@
 <ul>
 <li>Array.prototype.slice.call()</li>
 <li>Array.from()</li>
-<li>ES6展开运算符 let args = […arguments]</li>
-<li>利用concat+apply    let args = Array.prototype.concat.apply([], arguments);//apply方法会把第二个参数展开</li>
+<li>ES6 展开运算符 let args = […arguments]</li>
+<li>利用 concat+apply let args = Array.prototype.concat.apply([], arguments);//apply 方法会把第二个参数展开</li>
 </ul>
-<h2 id="forEach中return有效果吗？如何中断forEach循环"><a href="#forEach中return有效果吗？如何中断forEach循环" class="headerlink" title="forEach中return有效果吗？如何中断forEach循环"></a>forEach中return有效果吗？如何中断forEach循环</h2><p>在forEach中用return不会返回，函数会继续执行。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> nums = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];<br>nums.forEach(<span class="hljs-function">(<span class="hljs-params">item, index</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span>;<span class="hljs-comment">//无效</span><br>&#125;)<br></code></pre></td></tr></table></figure>
+<h2 id="forEach-中-return-有效果吗？如何中断-forEach-循环"><a href="#forEach-中-return-有效果吗？如何中断-forEach-循环" class="headerlink" title="forEach 中 return 有效果吗？如何中断 forEach 循环"></a>forEach 中 return 有效果吗？如何中断 forEach 循环</h2><p>在 forEach 中用 return 不会返回，函数会继续执行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> nums = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br>nums.forEach(<span class="hljs-function">(<span class="hljs-params">item, index</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-comment">//无效</span><br>&#125;)<br></code></pre></td></tr></table></figure>
 
 <p>中断方法：</p>
 <ol>
-<li>使用try监视代码块，在需要中断的地方抛出异常。</li>
-<li>官方推荐方法（替换方法）：用every和some替代forEach函数。every在碰到return false的时候，中止循环。some在碰到return ture的时候，中止循环</li>
+<li>使用 try 监视代码块，在需要中断的地方抛出异常。</li>
+<li>官方推荐方法（替换方法）：用 every 和 some 替代 forEach 函数。every 在碰到 return false 的时候，中止循环。some 在碰到 return ture 的时候，中止循环</li>
 </ol>
 <h2 id="数组扁平化"><a href="#数组扁平化" class="headerlink" title="数组扁平化"></a>数组扁平化</h2><p>数组扁平化就是多维数组转为一维数组</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> ary = [<span class="hljs-number">1</span>, [<span class="hljs-number">2</span>, [<span class="hljs-number">3</span>, [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>]]], <span class="hljs-number">6</span>];<span class="hljs-comment">// -&gt; [1, 2, 3, 4, 5, 6]</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> ary = [<span class="hljs-number">1</span>, [<span class="hljs-number">2</span>, [<span class="hljs-number">3</span>, [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>]]], <span class="hljs-number">6</span>] <span class="hljs-comment">// -&gt; [1, 2, 3, 4, 5, 6]</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="调用ES6中的flat方法"><a href="#调用ES6中的flat方法" class="headerlink" title="调用ES6中的flat方法"></a>调用ES6中的flat方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">ary = arr.flat(<span class="hljs-literal">Infinity</span>); 括号里面代表深度 参数也可以传进 <span class="hljs-literal">Infinity</span>，代表不论多少层都要展开<br></code></pre></td></tr></table></figure>
+<h3 id="调用-ES6-中的-flat-方法"><a href="#调用-ES6-中的-flat-方法" class="headerlink" title="调用 ES6 中的 flat 方法"></a>调用 ES6 中的 flat 方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">ary = arr.flat(<span class="hljs-literal">Infinity</span>); 括号里面代表深度 参数也可以传进 <span class="hljs-literal">Infinity</span>，代表不论多少层都要展开<br></code></pre></td></tr></table></figure>
 
-<h3 id="replace-split"><a href="#replace-split" class="headerlink" title="replace + split"></a>replace + split</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> ary = [<span class="hljs-number">1</span>, [<span class="hljs-number">2</span>, [<span class="hljs-number">3</span>, [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>]]], <span class="hljs-number">6</span>];<span class="hljs-comment">// -&gt; [1, 2, 3, 4, 5, 6]</span><br><span class="hljs-keyword">let</span> str = <span class="hljs-built_in">JSON</span>.stringify(ary);<br>ary = str.replace(<span class="hljs-regexp">/(\[|\])/g</span>, <span class="hljs-string">&#x27;&#x27;</span>).split(<span class="hljs-string">&#x27;,&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<h3 id="replace-split"><a href="#replace-split" class="headerlink" title="replace + split"></a>replace + split</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> ary = [<span class="hljs-number">1</span>, [<span class="hljs-number">2</span>, [<span class="hljs-number">3</span>, [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>]]], <span class="hljs-number">6</span>] <span class="hljs-comment">// -&gt; [1, 2, 3, 4, 5, 6]</span><br><span class="hljs-keyword">let</span> str = <span class="hljs-built_in">JSON</span>.stringify(ary)<br>ary = str.replace(<span class="hljs-regexp">/(\[|\])/g</span>, <span class="hljs-string">&#x27;&#x27;</span>).split(<span class="hljs-string">&#x27;,&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
 <h3 id="replace-JSON-parse"><a href="#replace-JSON-parse" class="headerlink" title="replace + JSON.parse()"></a>replace + JSON.parse()</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">str</span> = str.replace(/(\[|\]))/g, <span class="hljs-string">&#x27;&#x27;</span>)<span class="hljs-comment">;</span><br><span class="hljs-attr">str</span> = <span class="hljs-string">&#x27;[&#x27;</span> + str + <span class="hljs-string">&#x27;]&#x27;</span><span class="hljs-comment">;</span><br><span class="hljs-attr">ary</span> = JSON.parse(str)<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="普通递归"><a href="#普通递归" class="headerlink" title="普通递归"></a>普通递归</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> result = [];<br><span class="hljs-keyword">let</span> fn = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">ary</span>) </span>&#123;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; ary.length; i++) &#123;<br>    <span class="hljs-keyword">let</span> item = ary[i];<br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Array</span>.isArray(ary[i]))&#123;<br>      fn(item);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      result.push(item);<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="普通递归"><a href="#普通递归" class="headerlink" title="普通递归"></a>普通递归</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> result = []<br><span class="hljs-keyword">let</span> fn = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">ary</span>) </span>&#123;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; ary.length; i++) &#123;<br>    <span class="hljs-keyword">let</span> item = ary[i]<br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Array</span>.isArray(ary[i])) &#123;<br>      fn(item)<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      result.push(item)<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="利用reduce函数迭代"><a href="#利用reduce函数迭代" class="headerlink" title="利用reduce函数迭代"></a>利用reduce函数迭代</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">flatten</span>(<span class="hljs-params">ary</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> ary.reduce(<span class="hljs-function">(<span class="hljs-params">pre, cur</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">return</span> pre.concat(<span class="hljs-built_in">Array</span>.isArray(cur) ? flatten(cur) : cur);<br>    &#125;, []);<br>&#125;<br><span class="hljs-keyword">let</span> ary = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">5</span>, [<span class="hljs-number">6</span>, <span class="hljs-number">7</span>]]]<br><span class="hljs-built_in">console</span>.log(flatten(ary))<br></code></pre></td></tr></table></figure>
+<h3 id="利用-reduce-函数迭代"><a href="#利用-reduce-函数迭代" class="headerlink" title="利用 reduce 函数迭代"></a>利用 reduce 函数迭代</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">flatten</span>(<span class="hljs-params">ary</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> ary.reduce(<span class="hljs-function">(<span class="hljs-params">pre, cur</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">return</span> pre.concat(<span class="hljs-built_in">Array</span>.isArray(cur) ? flatten(cur) : cur)<br>  &#125;, [])<br>&#125;<br><span class="hljs-keyword">let</span> ary = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">5</span>, [<span class="hljs-number">6</span>, <span class="hljs-number">7</span>]]]<br><span class="hljs-built_in">console</span>.log(flatten(ary))<br></code></pre></td></tr></table></figure>
 
-<h3 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//只要有一个元素有数组，那么循环继续</span><br><span class="hljs-keyword">while</span> (ary.some(<span class="hljs-built_in">Array</span>.isArray)) &#123;<br>  ary = [].concat(...ary);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//只要有一个元素有数组，那么循环继续</span><br><span class="hljs-keyword">while</span> (ary.some(<span class="hljs-built_in">Array</span>.isArray)) &#123;<br>  ary = [].concat(...ary)<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="数组中的高阶函数"><a href="#数组中的高阶函数" class="headerlink" title="数组中的高阶函数"></a>数组中的高阶函数</h2><p>什么是高阶函数？</p>
 <p><code>一个函数</code>就可以接收另一个函数作为参数或者返回值为一个函数，<code>这种函数</code>就称之为高阶函数。</p>
 <h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><ul>
-<li>参数:接受两个参数，一个是回调函数，一个是回调函数的this值(可选)。</li>
+<li>参数:接受两个参数，一个是回调函数，一个是回调函数的 this 值(可选)。</li>
 </ul>
-<p>​        其中，回调函数被默认传入三个值，依次为当前元素、当前索引、整个数组。</p>
+<p>​ 其中，回调函数被默认传入三个值，依次为当前元素、当前索引、整个数组。</p>
 <ul>
 <li>创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果</li>
 <li>对原来的数组没有影响</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> nums = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];<br><span class="hljs-keyword">let</span> obj = &#123;<span class="hljs-attr">val</span>: <span class="hljs-number">5</span>&#125;;<br><span class="hljs-keyword">let</span> newNums = nums.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item,index,array</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> item + index + array[index] + <span class="hljs-built_in">this</span>.val; <br>  <span class="hljs-comment">//对第一个元素，1 + 0 + 1 + 5 = 7</span><br>  <span class="hljs-comment">//对第二个元素，2 + 1 + 2 + 5 = 10</span><br>  <span class="hljs-comment">//对第三个元素，3 + 2 + 3 + 5 = 13</span><br>&#125;, obj);<br><span class="hljs-built_in">console</span>.log(newNums);<span class="hljs-comment">//[7, 10, 13]</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> nums = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br><span class="hljs-keyword">let</span> obj = &#123; <span class="hljs-attr">val</span>: <span class="hljs-number">5</span> &#125;<br><span class="hljs-keyword">let</span> newNums = nums.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item, index, array</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> item + index + array[index] + <span class="hljs-built_in">this</span>.val<br>  <span class="hljs-comment">//对第一个元素，1 + 0 + 1 + 5 = 7</span><br>  <span class="hljs-comment">//对第二个元素，2 + 1 + 2 + 5 = 10</span><br>  <span class="hljs-comment">//对第三个元素，3 + 2 + 3 + 5 = 13</span><br>&#125;, obj)<br><span class="hljs-built_in">console</span>.log(newNums) <span class="hljs-comment">//[7, 10, 13]</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h3><p>参数: 接收两个参数，一个为回调函数，另一个为初始值。回调函数中三个默认参数，依次为积累值、当前值、整个数组。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> nums = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];<br><span class="hljs-comment">// 多个数的加和</span><br><span class="hljs-keyword">let</span> newNums = nums.reduce(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">preSum,curVal,array</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> preSum + curVal; <br>&#125;, <span class="hljs-number">0</span>);<br><span class="hljs-built_in">console</span>.log(newNums);<span class="hljs-comment">//6</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> nums = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br><span class="hljs-comment">// 多个数的加和</span><br><span class="hljs-keyword">let</span> newNums = nums.reduce(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">preSum, curVal, array</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> preSum + curVal<br>&#125;, <span class="hljs-number">0</span>)<br><span class="hljs-built_in">console</span>.log(newNums) <span class="hljs-comment">//6</span><br></code></pre></td></tr></table></figure>
 
 <p>不传默认值会怎样？</p>
 <p>不传默认值会自动以第一个元素为初始值，然后从第二个元素开始依次累计。</p>
 <h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p>参数: 一个函数参数。这个函数接受一个默认参数，就是当前元素。这个作为参数的函数返回值为一个布尔类型，决定元素是否保留。</p>
 <figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs delphi"><span class="hljs-keyword">var</span> newArray = arr.filter(callback(element,<span class="hljs-keyword">index</span>,<span class="hljs-keyword">array</span>)<span class="hljs-comment">&#123;&#125;</span>,thisArg)<br></code></pre></td></tr></table></figure>
-
-
 
 <ul>
 <li>element: 数组中当前正在处理的元素</li>
@@ -304,6 +302,13 @@
             <hr>
             <div>
               <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
+                    
+                  </div>
                 
                 
               </div>

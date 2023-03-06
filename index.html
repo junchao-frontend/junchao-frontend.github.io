@@ -58,7 +58,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>小潮</strong>
+      <strong>宿雾</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -184,29 +184,28 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/05/10/%E9%9D%A2%E8%AF%95(js%E9%83%A8%E5%88%86)/" target="_self">
-          
+        <a href="/2022/06/05/%E9%9D%A2%E8%AF%95(js%E9%83%A8%E5%88%86)/" target="_self">
+          面试复习（js）
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/05/10/%E9%9D%A2%E8%AF%95(js%E9%83%A8%E5%88%86)/" target="_self">
+        <a href="/2022/06/05/%E9%9D%A2%E8%AF%95(js%E9%83%A8%E5%88%86)/" target="_self">
           
           
             
           
-          面试(js部分)函数的argumentsarguments不是一个数组 它是一个类数组，只不过它的属性从0开始排，依次为0，1，2…最后还有callee和length属性
+          函数的 argumentsarguments 不是一个数组 它是一个类数组，只不过它的属性从 0 开始排，依次为 0，1，2…最后还有 callee 和 length 属性
 常见的类数组还有：
 
 
-用getElementByTagName/ClassName/Name（）获得的HTMLCollection
-用querySlector获得的nodeList
+用 getElementByTagName/ClassName/Name（）获得的 HTMLCollection
+用 querySlector 获得的 nodeList
 
 
 
 
-下面有几个方法可以使类数组转为数组
-
+下面有几个方法可以使类数
         </a>
       </p>
 
@@ -214,11 +213,18 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-05-10 11:08" pubdate>
-              2022-05-10
+            <time datetime="2022-06-05 17:00" pubdate>
+              2022-06-05
             </time>
           </div>
         
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
+            
+          </div>
         
         
       </div>
@@ -348,11 +354,11 @@ JavaScript 的许多内置对象都重写了该函数，
           
             
           
-          Vue在生命周期beforeCreate和created期间会初始化data
-会执行Observe函数
-observe(data)执行observe函数会定义一个ob，之后实例化Observer这个类
-在Observer类里面会调用def函数给每一个value绑定一个__ob__ ， 这个__ob__指向Observe实例
-紧接着会判断传进来的value是对象还是数组，如果是对象则walk函数，如
+          Vue 在生命周期 beforeCreate 和 created 期间会初始化 data
+会执行 Observe 函数
+observe(data)执行 observe 函数会定义一个 ob，之后实例化 Observer 这个类
+在 Observer 类里面会调用 def 函数给每一个 value 绑定一个ob** ， 这个ob指向 Observe 实例**
+紧接着会判断传进来的 value 是对象
         </a>
       </p>
 
@@ -403,9 +409,9 @@ observe(data)执行observe函数会定义一个ob，之后实例化Observer这�
             
           
           
-1.beforeCreate和created之间在这个生命周期之间，进行初始化事件，进行数据的观测，可以看到在created的时候数据已经和data属性进行绑定（放在data中的属性当值发生改变的同时，视图也会改变）。
-注意：此时还是没有el选项
-2.created钩子函数和beforeMount间的生命周期首先，会判断对象是否有el选项：如果有的话就继续向下编译，如果没有el选项，则停止编译，
+1.beforeCreate 和 created 之间在这个生命周期之间，进行初始化事件，进行数据的观测，可以看到在 created 的时候数据已经和 data 属性进行绑定（放在 data 中的属性当值发生改变的同时，视图也会改变）。
+注意：此时还是没有 el 选项
+2.created 钩子函数和 beforeMount 间的生命周期首先，会判断对象是否有 el 选项：如果有的话就继续向下编译
         </a>
       </p>
 
@@ -431,74 +437,6 @@ observe(data)执行observe函数会定义一个ob，之后实例化Observer这�
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/Vue/">Vue</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/03/14/Vue%E6%BA%90%E7%A0%81/" target="_self">
-          vue源码
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/03/14/Vue%E6%BA%90%E7%A0%81/" target="_self">
-          
-          
-            
-          
-          数据驱动
-前提: 
-
-你一定得用过 vue
-如果没有使用过的 可以去 官网 去看一看 使用教程
-
-Vue 与模板使用步骤:
-
-编写 页面 模板 
-直接在 HTML 标签中写 标签
-使用 template
-使用 单文件 (  )
-
-
-创建 Vue 的实例
-在 Vue 的构造函数中提供: data, methods, computed, watcher, props, …
-
-
-将 Vue 挂载到 页面
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-14 11:23" pubdate>
-              2022-03-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Vue2%E6%BA%90%E7%A0%81/">Vue2源码</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%BA%90%E7%A0%81/">源码</a>
             
           </div>
         
@@ -705,6 +643,73 @@ Vue 与模板使用步骤:
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/JS/">JS</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/12/20/vue-source/" target="_self">
+          Vue源码学习
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/12/20/vue-source/" target="_self">
+          
+          
+            
+          
+          vue数据驱动前提: 
+
+你一定得用过 vue
+如果没有使用过的 可以去 官网 去看一看 使用教程
+
+Vue 与模板使用步骤:
+
+编写 页面 模板 
+直接在 HTML 标签中写 标签
+使用 template
+使用 单文件
+
+
+创建 Vue 的实例
+在 Vue 的构造函数中提供: data, methods, computed, watcher, props, …
+
+
+将 Vue 挂载到 页面中 (
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-12-20 00:00" pubdate>
+              2021-12-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Vue/">Vue</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Vue/">Vue</a>
             
           </div>
         

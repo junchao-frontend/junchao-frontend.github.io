@@ -1,0 +1,639 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="项目：好未来 AI 开放平台官网（https:&#x2F;&#x2F;ai.100tal.com&#x2F;）负责：导航栏重构1.将类组件写法改为 hooks 写法2.改变二级&#x2F;三级菜单引入方式之前是在当前页面一直叠加静态数据 12345678910111213141516171819&lt;div  className&#x3D;&amp;#123;less.item&amp;#125;  onClick&#x3D;&amp;#123;() &#x3D;&gt; gotoPro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实习02">
+<meta property="og:url" content="http://example.com/2023/03/03/internship02/index.html">
+<meta property="og:site_name" content="Such is life">
+<meta property="og:description" content="项目：好未来 AI 开放平台官网（https:&#x2F;&#x2F;ai.100tal.com&#x2F;）负责：导航栏重构1.将类组件写法改为 hooks 写法2.改变二级&#x2F;三级菜单引入方式之前是在当前页面一直叠加静态数据 12345678910111213141516171819&lt;div  className&#x3D;&amp;#123;less.item&amp;#125;  onClick&#x3D;&amp;#123;() &#x3D;&gt; gotoPro">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/ai.png">
+<meta property="article:published_time" content="2023-03-03T02:08:00.000Z">
+<meta property="article:modified_time" content="2023-03-06T09:08:16.322Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="react">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/ai.png">
+  
+  
+  
+  <title>实习02 - Such is life</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>宿雾</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>目录</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="实习02"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-03-03 10:08" pubdate>
+          March 3, 2023 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          3.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">实习02</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="项目：好未来-AI-开放平台官网（https-ai-100tal-com-）"><a href="#项目：好未来-AI-开放平台官网（https-ai-100tal-com-）" class="headerlink" title="项目：好未来 AI 开放平台官网（https://ai.100tal.com/）"></a>项目：好未来 AI 开放平台官网（<a target="_blank" rel="noopener" href="https://ai.100tal.com/%EF%BC%89">https://ai.100tal.com/）</a></h3><h4 id="负责：导航栏重构"><a href="#负责：导航栏重构" class="headerlink" title="负责：导航栏重构"></a>负责：导航栏重构</h4><h5 id="1-将类组件写法改为-hooks-写法"><a href="#1-将类组件写法改为-hooks-写法" class="headerlink" title="1.将类组件写法改为 hooks 写法"></a>1.将类组件写法改为 hooks 写法</h5><h5 id="2-改变二级-三级菜单引入方式"><a href="#2-改变二级-三级菜单引入方式" class="headerlink" title="2.改变二级/三级菜单引入方式"></a>2.改变二级/三级菜单引入方式</h5><p>之前是在当前页面一直叠加静态数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;div<br>  className=&#123;less.<span class="hljs-property">item</span>&#125;<br>  onClick=&#123;<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">gotoProductPage</span>(<span class="hljs-string">&#x27;ocr-ptr&#x27;</span>)&#125;<br>&gt;<br>  印刷识别<br>&lt;/div&gt;<br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span></span></span><br><span class="hljs-tag"><span class="language-xml">  <span class="hljs-attr">className</span>=<span class="hljs-string">&#123;less.item&#125;</span></span></span><br><span class="hljs-tag"><span class="language-xml">  <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;()</span> =&gt;</span> gotoProductPage(&#x27;accurate-formula&#x27;)&#125;</span><br><span class="language-xml">&gt;</span><br><span class="language-xml">  印刷公式识别</span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span></span></span><br><span class="hljs-tag"><span class="language-xml">  <span class="hljs-attr">className</span>=<span class="hljs-string">&#123;less.item&#125;</span></span></span><br><span class="hljs-tag"><span class="language-xml">  <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;()</span> =&gt;</span> gotoProductPage(&#x27;ocr-psmhc&#x27;)&#125;</span><br><span class="language-xml">&gt;</span><br><span class="language-xml">  表格识别</span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><br></code></pre></td></tr></table></figure>
+
+<p>现在通过脚本 生成导航栏 json 数据 动态加载导航栏</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs react">// 在页面通过遍历json的方式加载<br>// 开放能力二/三级菜单<br>  const getSecondList = useCallback((childKey) =&gt; &#123;<br>    const childData = navigatorData.ability.list.find(<br>      (item) =&gt; item.key === childKey<br>    );<br>    let secondDomList = childData.children.map((item, index) =&gt; &#123;<br>      return (<br>        &lt;div className=&#123;less.secondMenuItemArea&#125; key=&#123;`$&#123;item.key&#125;-$&#123;index&#125;`&#125;&gt;<br>          &lt;&gt;<br>            &lt;div className=&#123;less.secondMenuTitle&#125;&gt;<br>              &#123;item.label&#125;<br>              &lt;div className=&#123;less.titleContent&#125;&gt;<br>                &#123;item.children.map((itemChild, idx) =&gt; &#123;<br>                  return (<br>                    &lt;div<br>                      className=&#123;less.titleItem&#125;<br>                      key=&#123;`$&#123;itemChild.key&#125;-$&#123;idx&#125;`&#125;<br>                    &gt;<br>                      &lt;span className=&#123;less.thirdLabel&#125;&gt;<br>                        &lt;b<br>                          onClick=&#123;() =&gt; gotoProductPage(itemChild.url)&#125;<br>                          className=&#123;less.labelHover&#125;<br>                        &gt;<br>                          &#123;itemChild.label&#125;<br>                        &lt;/b&gt;<br>                        &#123;thirdLabelIcon(itemChild.tag)&#125;<br>                      &lt;/span&gt;<br>                    &lt;/div&gt;<br>                  );<br>                &#125;)&#125;<br>              &lt;/div&gt;<br>            &lt;/div&gt;<br>          &lt;/&gt;<br>        &lt;/div&gt;<br>      );<br>    &#125;);<br>    return secondDomList;<br>  &#125;, []);<br><br></code></pre></td></tr></table></figure>
+
+<h5 id="3-改变导航栏样式"><a href="#3-改变导航栏样式" class="headerlink" title="3.改变导航栏样式"></a>3.改变导航栏样式</h5><p>之前是纵向加载</p>
+<p>现在增加一级标题横向展示</p>
+<p><img src="/img/ai.png" srcset="/img/loading.gif" lazyload alt="导航栏"></p>
+<h4 id="问题-难点："><a href="#问题-难点：" class="headerlink" title="问题/难点："></a>问题/难点：</h4><h5 id="（1）类组件改-Hooks-性能优化（useCallback）"><a href="#（1）类组件改-Hooks-性能优化（useCallback）" class="headerlink" title="（1）类组件改 Hooks 性能优化（useCallback）"></a>（1）类组件改 Hooks 性能优化（useCallback）</h5><h5 id="（2）网页缩小导航栏展示不全"><a href="#（2）网页缩小导航栏展示不全" class="headerlink" title="（2）网页缩小导航栏展示不全"></a>（2）网页缩小导航栏展示不全</h5><h5 id="（3）在下拉菜单中滚动时-禁止页面滚动"><a href="#（3）在下拉菜单中滚动时-禁止页面滚动" class="headerlink" title="（3）在下拉菜单中滚动时 禁止页面滚动"></a>（3）在下拉菜单中滚动时 禁止页面滚动</h5><h5 id="（4）在-react-next-中封装-img-组件引入-svg"><a href="#（4）在-react-next-中封装-img-组件引入-svg" class="headerlink" title="（4）在 react next 中封装 img 组件引入 svg"></a>（4）在 react next 中封装 img 组件引入 svg</h5><h5 id="（5）瀑布流展示二-三级菜单"><a href="#（5）瀑布流展示二-三级菜单" class="headerlink" title="（5）瀑布流展示二/三级菜单"></a>（5）瀑布流展示二/三级菜单</h5><h4 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h4><h5 id="问题（1）"><a href="#问题（1）" class="headerlink" title="问题（1）"></a>问题（1）</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> handleDownloadBtnClick = <span class="hljs-title function_">useCallback</span>(<span class="hljs-function">() =&gt;</span> &#123;&#125;, [])<br></code></pre></td></tr></table></figure>
+
+<p><code>useCallback</code> 的真正目的还是在于缓存了每次渲染时 inline callback 的实例，这样方便配合上子组件的 <code>shouldComponentUpdate</code> 或者 <code>React.memo</code> 起到减少不必要的渲染的作用。</p>
+<h5 id="问题（2）"><a href="#问题（2）" class="headerlink" title="问题（2）"></a>问题（2）</h5><p>通过监听滚动，动态设置导航栏盒子的样式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js">*style*=&#123;&#123; <span class="hljs-attr">left</span>: isNavLeft &#125;&#125; <span class="hljs-comment">// 设置给导航栏盒子的样式</span><br><span class="hljs-comment">// isNavLeft是用来动态改变盒子距离左侧的距离</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">scrollChange</span> = (<span class="hljs-params"></span>) =&gt; &#123;<br>    <span class="hljs-comment">// 监听div内滚动条距离左部距离</span><br>    <span class="hljs-title function_">setIsNavLeft</span>(-<span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">scrollLeft</span>);<br> &#125;;<br><span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;scroll&#x27;</span>, scrollChange, <span class="hljs-literal">true</span>);<br></code></pre></td></tr></table></figure>
+
+<h5 id="问题（3）"><a href="#问题（3）" class="headerlink" title="问题（3）"></a>问题（3）</h5><p>下拉菜单是通过改变 currentActiveMenu 分别展示不同子菜单</p>
+<p>当 currentActiveMenu 发生改变时（即：触发下拉框时），将 body 的滚动条禁用，不触发下拉的时候再恢复</p>
+<p>通过<strong>useEffect</strong>，每当 currentActiveMenu 发生改变时就会触发此函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs react">useEffect(() =&gt; &#123;<br>    document.body.style.overflow = &#x27;auto&#x27;;<br>    // 滚动条滚动时触发<br>    if (currentActiveMenu !== &#x27;&#x27;) &#123;<br>      document.body.style.overflow = &#x27;hidden&#x27;;<br>    &#125;<br>  &#125;, [currentActiveMenu]);<br></code></pre></td></tr></table></figure>
+
+<h5 id="问题（4）"><a href="#问题（4）" class="headerlink" title="问题（4）"></a>问题（4）</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs react">// 三级标题的icon组件<br>  const thirdLabelIcon = useCallback((key) =&gt; &#123;<br>    return (<br>      &lt;&gt;<br>        &#123;typeof key !== &#x27;undefined&#x27; &amp;&amp; (<br>          &lt;img<br>            className=&#123;less.icon&#125;<br>            src=&#123;`../../static/navigator/$&#123;TAG_ZH_TO_EN[key]&#125;.svg`&#125;<br>            width=&quot;30px&quot;<br>            height=&quot;14px&quot;<br>          /&gt;<br>        )&#125;<br>      &lt;/&gt;<br>    );<br>  &#125;, []);<br>  // src指向的路径必须放在static目录下 否则加载失败<br>// TAG_ZH_TO_EN为全局变量，将独家改为dujia<br></code></pre></td></tr></table></figure>
+
+<h5 id="问题（5）"><a href="#问题（5）" class="headerlink" title="问题（5）"></a>问题（5）</h5><p>瀑布流展示菜单是通过<strong>column-count</strong>实现<a target="_blank" rel="noopener" href="https://www.runoob.com/cssref/css3-pr-column-count.html">https://www.runoob.com/cssref/css3-pr-column-count.html</a></p>
+<p>父盒子将 column-count 设置为 4，即将 div 设置为 4 列</p>
+<p>子盒子</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;<br><span class="hljs-attribute">break-inside</span>: avoid; // 防止截断二级标题<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AE%9E%E4%B9%A0/" class="category-chain-item">实习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/react/">#react</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>实习02</div>
+      <div>http://example.com/2023/03/03/internship02/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>March 3, 2023</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/02/24/internship01/" title="实习01">
+                        <span class="hidden-mobile">实习01</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,647 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="项目：好未来 AI 开放平台官网（https:&#x2F;&#x2F;ai.100tal.com&#x2F;）负责：下载中心（Android 下载 H5 中转）手机微信&#x2F;支付宝扫码后，利用一个遮罩层提示用户前往浏览器下载 效果图   问题&#x2F;难点：（1）移动端适配（不利用插件）（2）判断设备类型 判断是微信扫的二维码还是支付宝 判断是 IOS 设备还是 Android  实现：问题（1）移动端适配思考两个问题  问题一 : 针对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实习03">
+<meta property="og:url" content="http://example.com/2023/03/09/internship03/index.html">
+<meta property="og:site_name" content="Such is life">
+<meta property="og:description" content="项目：好未来 AI 开放平台官网（https:&#x2F;&#x2F;ai.100tal.com&#x2F;）负责：下载中心（Android 下载 H5 中转）手机微信&#x2F;支付宝扫码后，利用一个遮罩层提示用户前往浏览器下载 效果图   问题&#x2F;难点：（1）移动端适配（不利用插件）（2）判断设备类型 判断是微信扫的二维码还是支付宝 判断是 IOS 设备还是 Android  实现：问题（1）移动端适配思考两个问题  问题一 : 针对">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/android.png">
+<meta property="article:published_time" content="2023-03-09T02:13:00.000Z">
+<meta property="article:modified_time" content="2023-03-09T02:15:57.570Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="react">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/android.png">
+  
+  
+  
+  <title>实习03 - Such is life</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>宿雾</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>目录</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="实习03"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-03-09 10:13" pubdate>
+          March 9, 2023 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          2.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          8 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">实习03</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="项目：好未来-AI-开放平台官网（https-ai-100tal-com-）"><a href="#项目：好未来-AI-开放平台官网（https-ai-100tal-com-）" class="headerlink" title="项目：好未来 AI 开放平台官网（https://ai.100tal.com/）"></a>项目：好未来 AI 开放平台官网（<a target="_blank" rel="noopener" href="https://ai.100tal.com/%EF%BC%89">https://ai.100tal.com/）</a></h3><h4 id="负责：下载中心（Android-下载-H5-中转）"><a href="#负责：下载中心（Android-下载-H5-中转）" class="headerlink" title="负责：下载中心（Android 下载 H5 中转）"></a>负责：下载中心（Android 下载 H5 中转）</h4><p>手机微信/支付宝扫码后，利用一个遮罩层提示用户前往浏览器下载</p>
+<p>效果图</p>
+<img src="/img/android.png" srcset="/img/loading.gif" lazyload alt="android" style="zoom: 33%;" />
+
+<h4 id="问题-难点："><a href="#问题-难点：" class="headerlink" title="问题/难点："></a>问题/难点：</h4><h5 id="（1）移动端适配（不利用插件）"><a href="#（1）移动端适配（不利用插件）" class="headerlink" title="（1）移动端适配（不利用插件）"></a>（1）移动端适配（不利用插件）</h5><h5 id="（2）判断设备类型"><a href="#（2）判断设备类型" class="headerlink" title="（2）判断设备类型"></a>（2）判断设备类型</h5><ul>
+<li>判断是微信扫的二维码还是支付宝</li>
+<li>判断是 IOS 设备还是 Android</li>
+</ul>
+<h4 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h4><h5 id="问题（1）"><a href="#问题（1）" class="headerlink" title="问题（1）"></a>问题（1）</h5><p>移动端适配思考两个问题</p>
+<ul>
+<li>问题一 : 针对不同的屏幕，设置 html 不同的 font-size</li>
+<li>问题二 : 讲原来要设置的尺寸，转化成 rem 单位</li>
+</ul>
+<h6 id="问题一的解决方式"><a href="#问题一的解决方式" class="headerlink" title="问题一的解决方式"></a>问题一的解决方式</h6><p>1、媒体查询 <strong>通过媒体查询来设置不同尺寸范围内的屏幕 html 的 font-size 尺寸</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">320px</span>) &#123;<br>  <span class="hljs-selector-tag">html</span> &#123;<br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;<br>  &#125;<br>&#125;<br><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">375px</span>) &#123;<br>  <span class="hljs-selector-tag">html</span> &#123;<br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">18px</span>;<br>  &#125;<br>&#125;<br><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">414px</span>) &#123;<br>  <span class="hljs-selector-tag">html</span> &#123;<br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">20px</span>;<br>  &#125;<br>&#125;<br><span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">480px</span>) &#123;<br>  <span class="hljs-selector-tag">html</span> &#123;<br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">22px</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>2、利用 JS 动态改变 html 的 font-size 大小</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> htmlDom = <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span><br><span class="hljs-comment">// 改变的函数</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">serRemFontSize</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-comment">// 拿到屏幕的宽度</span><br>  <span class="hljs-keyword">const</span> htmlWidth = htmlDom.<span class="hljs-property">clientWidth</span><br>  <span class="hljs-comment">// 计算fontsize的大小</span><br>  <span class="hljs-keyword">const</span> htmlFontSize = htmlWidth / <span class="hljs-number">10</span><br>  <span class="hljs-comment">// fontsize赋值到html上</span><br>  htmlDom.<span class="hljs-property">style</span>.<span class="hljs-property">fontSize</span> = htmlFontSize + <span class="hljs-string">&#x27;px&#x27;</span><br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(htmlWidth)<br>&#125;<br><span class="hljs-comment">// 第一次进来时主动调用一下</span><br><span class="hljs-title function_">serRemFontSize</span>()<br><span class="hljs-comment">// 实时监听屏幕尺寸改变的函数</span><br><span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;resize&#x27;</span>, serRemFontSize)<br><span class="hljs-comment">// 监听页面跳转(前进或者后退),重新设置一下</span><br><span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;pageshow&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) &#123;<br>  <span class="hljs-keyword">if</span> (e.<span class="hljs-property">persisted</span>) &#123;<br>    <span class="hljs-title function_">serRemFontSize</span>()<br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>3、<strong>使用 lib-flexible 库</strong></p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> i -S amfe-flexible<br></code></pre></td></tr></table></figure>
+
+<h6 id="问题二的解决方式"><a href="#问题二的解决方式" class="headerlink" title="问题二的解决方式"></a>问题二的解决方式</h6><p>1、<strong>使用 scss 的函数或者 less 的混入来计算</strong></p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-variable">@textColor:</span> <span class="hljs-number">#12345678</span>;<br><br><span class="hljs-selector-class">.poToRem</span>(<span class="hljs-variable">@px</span>) &#123;<br>  <span class="hljs-comment">// 375 -&gt; 37.5   根据设计稿来的  设计稿375px  那就 / 37.5</span><br>  result: 1rem * (@px / 37.5);<br>&#125;<br><br><span class="hljs-comment">// 使用less</span><br><span class="hljs-selector-class">.box</span> &#123;<br>  <span class="hljs-comment">// 利用混入来设定</span><br>  <span class="hljs-attribute">width</span>: .<span class="hljs-built_in">poToRem</span>(<span class="hljs-number">100</span>) [result];<br>  <span class="hljs-attribute">height</span>: .<span class="hljs-built_in">poToRem</span>(<span class="hljs-number">100</span>) [result];<br>&#125;<br><br><span class="hljs-selector-tag">p</span> &#123;<br>  <span class="hljs-attribute">font-size</span>: .<span class="hljs-built_in">poToRem</span>(<span class="hljs-number">16</span>) [result];<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>2、<strong>使用 postcss-pxtorem 插件</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs js">npm install postcss-pxtorem --save-dev<br><br>需要在webpack中配置<br><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  <span class="hljs-attr">plugins</span>: [<br>    <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;postcss-preset-env&#x27;</span>),<br>    <span class="hljs-comment">// 使用这个插件</span><br>    <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;postcss-pxtorem&#x27;</span>)(&#123;<br>      <span class="hljs-attr">rootValue</span>: <span class="hljs-number">37.5</span>, <span class="hljs-comment">// 设计稿宽度的1/10</span><br>      <span class="hljs-attr">propList</span>: [<span class="hljs-string">&#x27;*&#x27;</span>], <span class="hljs-comment">// 需要做转化处理的属性，如`hight`、`width`、`margin`等，`*`表示全部</span><br>      <span class="hljs-attr">exclude</span>: <span class="hljs-regexp">/node_modules/i</span> <span class="hljs-comment">// 忽略的文件</span><br>    &#125;)<br>  ]<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>3、<strong>使用 VSCode 插件 : px to rem 插件</strong></p>
+<h5 id="问题（2）"><a href="#问题（2）" class="headerlink" title="问题（2）"></a>问题（2）</h5><p>1、判断是微信页面还是支付宝页面</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 判断是否是微信</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">isWechat</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">let</span> userAgent = navigator.<span class="hljs-property">userAgent</span>.<span class="hljs-title function_">toLowerCase</span>()<br>  <span class="hljs-keyword">if</span> (userAgent.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/MicroMessenger/i</span>) == <span class="hljs-string">&#x27;micromessenger&#x27;</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span><br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span><br>  &#125;<br>&#125;<br><span class="hljs-comment">// 判断是否是支付宝</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">isAlipay</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">let</span> userAgent = navigator.<span class="hljs-property">userAgent</span>.<span class="hljs-title function_">toLowerCase</span>()<br>  <span class="hljs-keyword">if</span> (userAgent.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/Alipay/i</span>) == <span class="hljs-string">&#x27;alipay&#x27;</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span><br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>2、判断是否是 ios 设备</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">isIos</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">let</span> userAgent = navigator.<span class="hljs-property">userAgent</span><br>  <span class="hljs-keyword">let</span> isiOS = !!userAgent.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>)<br>  <span class="hljs-keyword">return</span> isiOS<br>&#125;<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AE%9E%E4%B9%A0/" class="category-chain-item">实习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/react/">#react</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>实习03</div>
+      <div>http://example.com/2023/03/09/internship03/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>March 9, 2023</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/03/03/internship02/" title="实习02">
+                        <span class="hidden-mobile">实习02</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
